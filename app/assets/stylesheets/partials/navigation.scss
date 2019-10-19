@@ -1,0 +1,17 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 1px 1px 17px 0px rgba(0, 0, 0, 0.13);
+    padding: 10px;
+}
+
+.navigation-menu {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.menu-list {
+    padding: 0 10px;
+}
