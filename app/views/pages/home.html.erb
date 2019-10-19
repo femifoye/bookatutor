@@ -1,9 +1,19 @@
 
 <%= render "layouts/header" %>
-<h1 class="section-home">Pages#home</h1>
-<div class="">
+<div class="hero">
+  <div class="hero-inner container">
+    <div class="hero-inner-text">
+      <div class="hero-inner-heading">
+        <h1>Get better results</h1>
+        <h4>Find a tutor to help you with the subjects you find difficult</h4>
+        <a href="" class="btn btn-tutor">Get Started</a>
+      </div>
 
+    </div>
+    <div class="hero-inner-img">
+      <%= image_tag("tutor.png", class: "img-responsive") %>
+    </div>
+  </div>
 </div>
-<p>Find me in app/views/pages/home.html.erb</p>
 
 <%= render "layouts/footer" %>

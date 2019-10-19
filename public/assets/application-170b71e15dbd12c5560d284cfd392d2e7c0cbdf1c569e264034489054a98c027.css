@@ -1,0 +1,44 @@
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+html body {
+  background-color: #f0f0f0;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/home.scss */
+.section-home {
+  font-size: 5em;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/partials/navigation.scss */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 1px 1px 17px 0px rgba(0, 0, 0, 0.13);
+  padding: 10px;
+}
+
+/* line 9, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/partials/navigation.scss */
+.navigation-menu {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+/* line 15, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/partials/navigation.scss */
+.menu-list {
+  padding: 0 10px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
