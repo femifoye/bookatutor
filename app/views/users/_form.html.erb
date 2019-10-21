@@ -23,17 +23,17 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email, :class => 'form-control' %>
+    <%= form.email_field :email, id: :user_email, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.text_field :password, id: :user_password, :class => 'form-control' %>
+    <%= form.password_field :password, id: :user_password, :class => 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.select(:type, ['Student','Tutor'], {}, {:class => "form-control", id: :user_type}) %>
+    <%= form.label :role %>
+    <%= form.select(:role, ['Student','Tutor'], {}, {:class => "form-control", id: :user_role}) %>
   </div>
 
   <div class="actions">

@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<%# <p id="notice"><%= notice %></p> %>
+<!-- <p class="alert"><%= alert %></p> -->
 
 <p>
   <strong>Firstname:</strong>
@@ -21,8 +22,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @user.type %>
+  <strong>Role:</strong>
+  <%= @user.role %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
