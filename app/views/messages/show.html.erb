@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Message to:</strong>
+  <%= @message.message_to %>
+</p>
+
+<p>
+  <strong>Message from:</strong>
+  <%= @message.message_from %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @message.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @message.user %>
+</p>
+
+<%= link_to 'Edit', edit_user_message_path(@user, @message) %> |
+<%= link_to 'Back', user_messages_path(@user) %>

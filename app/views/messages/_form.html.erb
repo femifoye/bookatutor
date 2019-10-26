@@ -1,0 +1,42 @@
+<%= form_for([@user, @message]) do |form| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :message_to %>
+    <%= form.text_field :message_to, id: :message_message_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message_from %>
+    <%= form.text_field :message_from, id: :message_message_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message_content %>
+    <%= form.text_field :message_content, id: :message_message_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :message_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :message_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

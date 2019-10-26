@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191026135142) do
+ActiveRecord::Schema.define(version: 20191026172540) do
+
+  create_table "messages", force: :cascade do |t|
+    t.string "message_to"
+    t.string "message_from"
+    t.string "status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "message_content"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "payments", force: :cascade do |t|
     t.integer "amount"
@@ -21,6 +32,12 @@ ActiveRecord::Schema.define(version: 20191026135142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

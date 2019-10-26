@@ -8,12 +8,9 @@
 
 <tr>
 <td><%= payment.amount %></td>
-<td><%= link_to 'Show', user_payment_path(@user, payment)
-%></td>
-<td><%= link_to 'Edit', edit_user_payment_path(@user, payment)
-%></td>
-<td><%= link_to 'Destroy', user_payment_path(@user, payment),
-:confirm => 'Are you sure?', :method => :delete %></td>
+<td><%= link_to 'Show', user_payment_path(@user, payment) %></td>
+<td><%= link_to 'Edit', edit_user_payment_path(@user, payment) %></td>
+<td><%= link_to 'Destroy', user_payment_path(@user, payment), :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>
 <% end %>
 </table>
