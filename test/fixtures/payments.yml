@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  receiver: 1
+  refunded: false
+  completed: false
+  user: one
+
+two:
+  amount: 1
+  receiver: 1
+  refunded: false
+  completed: false
+  user: two

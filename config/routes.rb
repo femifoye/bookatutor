@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :users do
+    resources :payments
+  end
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
     delete 'signout', to: 'users/sessions#destroy'
   end
 
-  resources :users
+
   root 'pages#home'
 
   get '/register', to: 'users#new'

@@ -12,8 +12,8 @@
 
   <%= render 'layouts/header' %>
   <body>
-    <% if notice %><p id="notice"><%= notice %></p><% end %>
-    <% if alert %><p class="alert"><%= alert %></p><% end %>
+    <% if notice %><p id="notice" class="alert alert-primary text-center"><%= notice %></p><% end %>
+    <% if alert %><p class="alert alert-primary text-center"><%= alert %></p><% end %>
     <%= yield %>
   </body>
   <%= render 'layouts/footer' %>
