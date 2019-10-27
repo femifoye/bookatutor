@@ -1,0 +1,6 @@
+<h1>Editing Review</h1>
+
+<%= render 'form', review: @review %>
+
+<%= link_to 'Show', user_review_path(@user, @review) %> |
+<%= link_to 'Back', user_reviews_path(@user) %>

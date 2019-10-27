@@ -1,0 +1,37 @@
+
+
+<h1>Reviews</h1>
+
+<% if(@reviews == nil) %>
+  <h2>No Reviews to display</h2>
+<% else %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reviewee</th>
+      <th>Review content</th>
+      <th>Review stars</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.reviewee %></td>
+        <td><%= review.review_content %></td>
+        <td><%= review.review_stars %></td>
+        <td><%= review.user %></td>
+        <td><%= link_to 'Show', user_review_path(@user, review) %></td>
+        <td><%= link_to 'Edit', edit_user_review_path(@user, review) %></td>
+        <td><%= link_to 'Destroy', user_review_path(@user, review), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<br>
+
+<%= link_to 'New Review', new_user_review_path(@user, @review) %>

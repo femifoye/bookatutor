@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Reviewee:</strong>
+  <%= @review.reviewee %>
+</p>
+
+<p>
+  <strong>Review content:</strong>
+  <%= @review.review_content %>
+</p>
+
+<p>
+  <strong>Review stars:</strong>
+  <%= @review.review_stars %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @review.user %>
+</p>
+
+<%= link_to 'Edit', edit_user_review_path(@user, @review) %> |
+<%= link_to 'Back', user_reviews_path(@user) %>

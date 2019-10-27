@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :reviews
   resources :subjects
   resources :users do
     resources :payments
     resources :messages
+    resources :reviews
   end
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
