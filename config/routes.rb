@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
   
+  
   resources :reviews
   resources :subjects
   resources :users do
     resources :payments
     resources :messages
     resources :reviews
+    # resources :tutors
+
+    #user profile
+    resources :tutors, only: [:create, :update]
+    get 'profile', to: 'tutors#index'
+    get 'profile/new', to: 'tutors#new'
+    get 'profile/:id', to: 'tutors#show', :as => :profile_show
+    get 'profile/:id/edit', to: 'tutors#edit', :as => :profile_edit
+
+    delete 'profile/:id', to: 'tutors#destroy', :as => :profile_delete
+    
+    
   end
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

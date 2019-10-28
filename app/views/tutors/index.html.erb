@@ -1,0 +1,44 @@
+
+<h1>Your Profile</h1>
+
+<% if @tutor == nil %>
+ <h2>You have not created a profile</h2>
+ <p><%= link_to "Create New Profile", user_profile_new_path(@user) %></p>
+<% else %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Headline</th>
+      <th>Description</th>
+      <th>Years teaching</th>
+      <th>Teaching style</th>
+      <th>Work experience</th>
+      <th>Education</th>
+      <th>Subjects</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @tutor.headline %></td>
+        <td><%= @tutor.description %></td>
+        <td><%= @tutor.years_teaching %></td>
+        <td><%= @tutor.teaching_style %></td>
+        <td><%= @tutor.work_experience %></td>
+        <td><%= @tutor.education %></td>
+        <td><%= @tutor.subjects %></td>
+        <td><%= @tutor.user %></td>
+        <td><%= link_to 'Show', user_profile_url %></td>
+        <%= link_to 'Delete', user_profile_delete_path(@user, @tutor), method: :delete, data: { confirm: 'Are you sure?' } %> 
+      </tr>
+  </tbody>
+</table>
+
+<% end %>
+
+<br>
+

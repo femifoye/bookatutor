@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  headline: MyText
+  description: MyText
+  years_teaching: 1
+  teaching_style: MyString
+  work_experience: 
+  education: 
+  subjects: 
+  user: one
+
+two:
+  headline: MyText
+  description: MyText
+  years_teaching: 1
+  teaching_style: MyString
+  work_experience: 
+  education: 
+  subjects: 
+  user: two

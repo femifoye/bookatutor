@@ -1,0 +1,44 @@
+
+
+<p>
+  <strong>Headline:</strong>
+  <%= @tutor.headline %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tutor.description %>
+</p>
+
+<p>
+  <strong>Years teaching:</strong>
+  <%= @tutor.years_teaching %>
+</p>
+
+<p>
+  <strong>Teaching style:</strong>
+  <%= @tutor.teaching_style %>
+</p>
+
+<p>
+  <strong>Work experience:</strong>
+  <%= @tutor.work_experience %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @tutor.education %>
+</p>
+
+<p>
+  <strong>Subjects:</strong>
+  <%= @tutor.subjects %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tutor.user %>
+</p>
+
+<%= link_to 'Delete', user_profile_delete_path(@user, @tutor), method: :delete, data: { confirm: 'Are you sure?' } %> 
+<%= link_to "Home", root_path %>

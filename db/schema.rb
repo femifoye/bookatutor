@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191027162229) do
+ActiveRecord::Schema.define(version: 20191028115614) do
 
   create_table "messages", force: :cascade do |t|
     t.string "message_to"
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(version: 20191027162229) do
     t.string "subject_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tutors", force: :cascade do |t|
+    t.text "headline"
+    t.text "description"
+    t.integer "years_teaching"
+    t.string "teaching_style"
+    t.text "work_experience"
+    t.text "education"
+    t.text "subjects"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tutors_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

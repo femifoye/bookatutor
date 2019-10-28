@@ -1,0 +1,57 @@
+<%= form_with(model: [@user, @tutor], local: true) do |form| %>
+  <% if @tutor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tutor.errors.count, "error") %> prohibited this tutor from being saved:</h2>
+
+      <ul>
+      <% @tutor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :headline %>
+    <%= form.text_area :headline, id: :tutor_headline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :tutor_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :years_teaching %>
+    <%= form.number_field :years_teaching, id: :tutor_years_teaching %>
+  </div>
+
+  <div class="field">
+    <%= form.label :teaching_style %>
+    <%= form.text_field :teaching_style, id: :tutor_teaching_style %>
+  </div>
+
+  <div class="field">
+    <%= form.label :work_experience %>
+    <%= form.text_field :work_experience, id: :tutor_work_experience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :education %>
+    <%= form.text_field :education, id: :tutor_education %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subjects %>
+    <%= form.text_field :subjects, id: :tutor_subjects %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :tutor_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
