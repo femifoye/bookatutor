@@ -4,12 +4,17 @@ class TutorsController < ApplicationController
 
   def create
     @tutor = @user.build_tutor(tutor_params)
-    respond_to do |f|
-      if @tutor.save 
-        f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
-      else
-        render :action => 'profiles/new'
+    if @tutor.save 
+      @user.has_profile = true
+      respond_to do |f|
+        if @user.save
+          f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
+        else
+          puts "No such User"
+        end
       end
+    else
+      render :action => 'profiles/new'
     end
   end
 

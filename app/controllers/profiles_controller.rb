@@ -9,8 +9,7 @@ class ProfilesController < ApplicationController
 
 
     def new
-        @has_tutor = @user.tutor
-        if @has_tutor != nil
+        if @user.has_profile == true
             redirect_to user_profile_url, :notice => "You have already created a profile"
         else
         @profile = send @prop[:build]
