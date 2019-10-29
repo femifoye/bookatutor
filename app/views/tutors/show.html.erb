@@ -2,43 +2,43 @@
 
 <p>
   <strong>Headline:</strong>
-  <%= @tutor.headline %>
+  <%= @profile.headline %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @tutor.description %>
+  <%= @profile.description %>
 </p>
 
 <p>
   <strong>Years teaching:</strong>
-  <%= @tutor.years_teaching %>
+  <%= @profile.years_teaching %>
 </p>
 
 <p>
   <strong>Teaching style:</strong>
-  <%= @tutor.teaching_style %>
+  <%= @profile.teaching_style %>
 </p>
 
 <p>
   <strong>Work experience:</strong>
-  <%= @tutor.work_experience %>
+  <%= @profile.work_experience %>
 </p>
 
 <p>
   <strong>Education:</strong>
-  <%= @tutor.education %>
+  <%= @profile.education %>
 </p>
 
 <p>
   <strong>Subjects:</strong>
-  <%= @tutor.subjects %>
+  <%= @profile.subjects %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @tutor.user %>
+  <%= @profile.user %>
 </p>
 
-<%= link_to 'Delete', user_profile_delete_path(@user, @tutor), method: :delete, data: { confirm: 'Are you sure?' } %> 
+<%= link_to 'Delete', user_profile_delete_path(@user, @profile), method: :delete, data: { confirm: 'Are you sure?' } %> 
 <%= link_to "Home", root_path %>

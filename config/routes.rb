@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :students
   resources :reviews
   resources :subjects
   resources :users do
@@ -10,13 +11,25 @@ Rails.application.routes.draw do
     # resources :tutors
 
     #user profile
-    resources :tutors, only: [:create, :update]
-    get 'profile', to: 'tutors#index'
-    get 'profile/new', to: 'tutors#new'
-    get 'profile/:id', to: 'tutors#show', :as => :profile_show
-    get 'profile/:id/edit', to: 'tutors#edit', :as => :profile_edit
+    # resources :tutors, only: [:create, :update]
+    # get 'profile', to: 'tutors#index'
+    # get 'profile/new', to: 'tutors#new'
+    # get 'profile/:id', to: 'tutors#show', :as => :profile_show
+    # get 'profile/:id/edit', to: 'tutors#edit', :as => :profile_edit
 
-    delete 'profile/:id', to: 'tutors#destroy', :as => :profile_delete
+    # delete 'profile/:id', to: 'tutors#destroy', :as => :profile_delete
+
+    resources :tutors, only: [:create, :update] 
+    resources :students
+    get 'profile', to: 'profiles#index'
+    get 'profile/new', to: 'profiles#new'
+    get 'profile/:id', to: 'profiles#show'
+    get 'profile/:id/edit', to: 'profiles#edit', :as => :profile_edit
+
+
+    delete 'profile/:id', to: 'profiles#destroy', :as => :profile_delete
+
+
     
     
   end

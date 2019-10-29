@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191028115614) do
+ActiveRecord::Schema.define(version: 20191029000648) do
 
   create_table "messages", force: :cascade do |t|
     t.string "message_to"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20191028115614) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "education_level"
+    t.text "description"
+    t.text "subjects_of_interest"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "subject_name"
     t.datetime "created_at", null: false
@@ -74,6 +84,7 @@ ActiveRecord::Schema.define(version: 20191028115614) do
     t.string "lastname"
     t.string "role"
     t.string "gender"
+    t.boolean "has_profile", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
