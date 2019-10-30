@@ -1,10 +1,10 @@
-<%= form_with(model: student, local: true) do |form| %>
-  <% if student.errors.any? %>
+<%= form_with(model: [@user, @profile], local: true) do |form| %>
+  <% if @profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
-      <% student.errors.full_messages.each do |message| %>
+      <% @profile.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
+<h1>Your Profile</h1>
+
+<% if @profile == nil %>
+ <h2>You have not created a profile</h2>
+ <p><%= link_to "Create New Profile", user_profile_new_path(@user) %></p>
+<% else %>
 
 <table>
   <thead>
@@ -14,15 +18,14 @@
   </thead>
 
   <tbody>
-    <% @students.each do |student| %>
       <tr>
-        <td><%= student.education_level %></td>
-        <td><%= student.description %></td>
-        <td><%= student.subjects_of_interest %></td>
-        <td><%= student.user %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @profile.education_level %></td>
+        <td><%= @profile.description %></td>
+        <td><%= @profile.subjects_of_interest %></td>
+        <td><%= @profile.user %></td>
+        <td><%= link_to 'Show', user_profile_url %></td>
+        <td><%= link_to 'Edit', user_profile_edit_path(@user, @profile) %></td>
+        <td><%= link_to 'Destroy', user_profile_delete_path(@user, @profile), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,3 @@
 
 <br>
 
-<%= link_to 'New Student', new_student_path %>

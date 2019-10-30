@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
     before_action :set_user
     before_action :set_prop
+    before_action :authenticate_user!
+
 
     def index
         @profile = send @prop[:show]
@@ -35,8 +37,14 @@ class ProfilesController < ApplicationController
         @profile = send @prop[:show]
         respond_to do |format|
             if @profile.destroy
-                format.html { redirect_to root_url, notice: 'Your profile has been sucessfully deleted' }
-                format.json { head :no_content }
+                @user.has_profile == false
+                if @user.save
+                    format.html { redirect_to root_url, notice: 'Your profile has been sucessfully deleted' }
+                else
+                    puts 'No such User'
+                end    
+            else
+                puts 'Error deleting Profile'
             end
         end
     end
@@ -57,7 +65,7 @@ class ProfilesController < ApplicationController
         case @prop[:role]
         when "student"
             student_action
-        when "tutor"
+        when "Tutor"
             tutor_action
         else
             puts 'You have selected an invalid option'
@@ -65,29 +73,29 @@ class ProfilesController < ApplicationController
     end
 
     def run_build()
-        switch_role(@user.build_tutor(), @user.build_tutor())
+        switch_role(@user.build_student(), @user.build_tutor())
     end
 
     def run_show()
-        switch_role(@user.tutor(), @user.tutor())
+        switch_role(@user.student(), @user.tutor())
     end
 
     def set_prop
+
         if get_user_role == "student"
-            
             @prop = {
                 :role => "student",
                 :build => "run_build",
                 :show => "run_show",
-                :render => "tutors"
+                :render => "students"
             }
         else
 
             @prop = {
-                :role => "tutor",
+                :role => "Tutor",
                 :build => "run_build",
                 :show => "run_show",
-                :render => "students/"
+                :render => "tutors"
             }
         end
     end
