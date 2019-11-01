@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% if @profile == nil %>
+  <h2>This user is a <%= @user.role %> and has not created a profile</h2>
+<% else %>
 
 <p>
   <strong>Education level:</strong>
-  <%= @student.education_level %>
+  <%= @profile.education_level %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @student.description %>
+  <%= @profile.description %>
 </p>
 
 <p>
   <strong>Subjects of interest:</strong>
-  <%= @student.subjects_of_interest %>
+  <%= @profile.subjects_of_interest %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @student.user %>
+  <%= @profile.user %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<% end %>
+
+<%= link_to "Home", root_path %>

@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Start:</strong>
+  <%= @session.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @session.end %>
+</p>
+
+<p>
+  <strong>Members:</strong>
+  <%= @session.members %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @session.references %>
+</p>
+
+<%= link_to 'Edit', edit_user_booking_session_path(@user, @booking, @session) %> |
+<%= link_to 'Back', user_booking_session(@user, @booking, @session) %>

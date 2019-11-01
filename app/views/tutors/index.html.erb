@@ -1,9 +1,18 @@
 
-<h1>Your Profile</h1>
+<h1><h1>Welcome, <%= current_user.firstname %></h1></h1>
 
 <% if @profile == nil %>
  <h2>You have not created a profile</h2>
  <p><%= link_to "Create New Profile", user_profile_new_path(@user) %></p>
+
+ <h1><%= current_user.id %></h1>
+<h1><%= current_user.role %></h1>
+<h1><%= current_user.firstname %></h1>
+<h1><%= current_user.lastname %></h1>
+<h1><%= current_user.gender %></h1>
+<h1><%= current_user.has_profile %></h1>
+<h1><%= current_user.email %></h1>
+
 <% else %>
 
 

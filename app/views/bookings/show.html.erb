@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Date:</strong>
+  <%= @booking.date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @booking.location %>
+</p>
+
+<p>
+  <strong>User Booked:</strong>
+  <%= @booking.user_booked %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.user %>
+</p>
+
+<%= link_to 'Edit', edit_user_booking_path(@user, @booking) %> |
+<%= link_to 'Back', user_bookings_path(@user) %>

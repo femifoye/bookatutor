@@ -26,7 +26,7 @@ class TutorsController < ApplicationController
       if @tutor.update(tutor_params)
         format.html { redirect_to user_profile_url, notice: 'Profile was successfully updated.' }
       else
-        render :action => 'new'
+        render :action => 'edit'
       end
     end
   end

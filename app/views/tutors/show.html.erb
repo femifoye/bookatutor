@@ -1,5 +1,7 @@
 
-
+<% if @profile == nil %>
+  <h2>This user is a <%= @user.role %> and has not created a profile</h2>
+<% else %>
 <p>
   <strong>Headline:</strong>
   <%= @profile.headline %>
@@ -40,5 +42,6 @@
   <%= @profile.user %>
 </p>
 
-<%= link_to 'Delete', user_profile_delete_path(@user, @profile), method: :delete, data: { confirm: 'Are you sure?' } %> 
+<% end %>
+
 <%= link_to "Home", root_path %>

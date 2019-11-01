@@ -6,11 +6,16 @@ class ProfilesController < ApplicationController
 
     def index
         @profile = send @prop[:show]
-        render "#{@prop[:render]}/index"
+        if @user != current_user
+            render "#{@prop[:render]}/show"
+        else
+            render "#{@prop[:render]}/index"
+        end
     end
 
 
     def new
+
         if @user.has_profile == true
             redirect_to user_profile_url, :notice => "You have already created a profile"
         else
@@ -81,8 +86,8 @@ class ProfilesController < ApplicationController
     end
 
     def set_prop
-
-        if get_user_role == "student"
+        user_role = get_user_role
+        if user_role == "Student"
             @prop = {
                 :role => "student",
                 :build => "run_build",

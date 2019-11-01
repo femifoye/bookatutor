@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   
+  resources :sessions
+  resources :bookings
   resources :students
   resources :reviews
   resources :subjects
@@ -39,8 +41,11 @@ Rails.application.routes.draw do
     get 'profile/:id', to: 'profiles#show'
     get 'profile/:id/edit', to: 'profiles#edit', :as => :profile_edit
 
-
-    delete 'profile/:id', to: 'profiles#destroy', :as => :profile_delete 
+    delete 'profile/:id', to: 'profiles#destroy', :as => :profile_delete
+    
+    resources :bookings do
+      resources :sessions
+    end
   end
 
 
