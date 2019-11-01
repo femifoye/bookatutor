@@ -45,6 +45,9 @@ Rails.application.routes.draw do
     
     resources :bookings do
       resources :sessions
+
+      post 'sessions/:id/end', to: 'sessions#endsession', :as => :session_end
+      get 'sessions/:id/details', to: 'sessions#details', :as => :session_detail
     end
   end
 

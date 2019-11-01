@@ -1,4 +1,4 @@
-<%= form_with(model: [@booking, @session], local: true) do |form| %>
+<%= form_with(model: [@user, @booking, @session], local: true) do |form| %>
   <% if @session.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :references %>
-    <%= form.text_field :references, id: :session_references %>
+    <%= form.label :booking_id %>
+    <%= form.text_field :booking_id, id: :session_booking_id %>
   </div>
 
   <div class="actions">

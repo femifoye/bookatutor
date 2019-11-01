@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update, :destroy]
+  before_action :set_session, only: [:show, :edit, :update, :destroy, :endsession, :details]
   before_action :set_booking
   before_action :set_user
 
   # GET /sessions
   # GET /sessions.json
   def index
-    @sessions = @booking.session()
+    @session = @booking.session()
   end
 
   # GET /sessions/1
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def details
-    @session = booking.session()
+    @session = @booking.session()
   end
 
   # POST /sessions
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
     @session = @booking.build_session(session_params)
     respond_to do |format|
       if @session.save
-        format.html { redirect_to user_booking_session_url, notice: 'Session was successfully created.' }
+        format.html { redirect_to user_booking_sessions_url, notice: 'Session was successfully created.' }
       else
         render :action => 'new'
       end
@@ -57,11 +57,11 @@ class SessionsController < ApplicationController
 
   def endsession
     if session_started
-      @session = booking.session()
-      session.end = Time.now
+      @session = @booking.session()
+      @session.end = Time.now
       respond_to do | format |
         if @session.save
-          format.html { redirect_to user_booking_session_details_path(@user, @booking, @session), notice: "You have ended your session. Here are your session details."}
+          format.html { redirect_to user_booking_session_detail_path(@user, @booking, @session), notice: "You have ended your session. Here are your session details."}
         else
           puts "Unable to End session"
         end
