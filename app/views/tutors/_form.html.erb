@@ -31,37 +31,41 @@
     <%= form.text_field :teaching_style, id: :tutor_teaching_style %>
   </div>
 
-  <%= form.fields_for :work_experience do |g| %>
+
+  <h4>Work Experience</h4>
   <div class="work-experience-field">
-    <h4>Work Experience</h4>
+    
     <div class="work-experience-input">
-      <%= g.label :company, "Company" %>
-      <%= g.text_field :company %>
+      <%= label_tag "company_name", "Company" %>
+      <%= text_field_tag "work_experience[][company]" %>
     </div>
 
     <div class="work-experience-input">
-      <%= g.label :location, "Location" %>
-      <%= g.text_field :location %>
+      <%= label_tag "location_name", "Location" %>
+      <%= text_field_tag "work_experience[][location]" %>
     </div>
 
-    <div class="work-experience-input">
-      <%= g.label :title, "Job Title" %>
-      <%= g.text_field :title %>
-    </div>
-
-    <div class="work-experience-input">
-      <%= g.label :from, "From" %>
-      <%= g.date_select :from, { order: [:day, :month, :year] } %>
-    </div> 
-
-    <div class="work-experience-input">
-      <%= g.label :to, "To" %>
-      <%= g.date_select :to, { order: [:day, :month, :year] } %>
-    </div>
+   
 
   </div>
 
-  <% end %>
+  <div class="work-experience-field">
+
+    <div class="work-experience-input">
+      <%= label_tag "company_name", "Company" %>
+      <%= text_field_tag "work_experience[][company]" %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= label_tag "location_name", "Location" %>
+      <%= text_field_tag "work_experience[][location]" %>
+    </div>
+
+   
+
+  </div>
+
+
 
   <div class="field">
     <%= form.label :education %>
