@@ -45,6 +45,21 @@
       <%= form.text_field "work_experience[][location]" %>
     </div>
 
+    <div class="work-experience-input">
+      <%= form.label :title, "Job Title" %>
+      <%= form.text_field "work_experience[][title]" %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= form.label :from, "From" %>
+      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] } %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= form.label :to, "To" %>
+      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] } %>
+    </div>
+
    
 
   </div>
@@ -53,12 +68,27 @@
 
     <div class="work-experience-input">
       <%= form.label :company, "Company" %>
-      <%= form.text_field "work_experience[:company]" %>
+      <%= form.text_field "work_experience[][company]" %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :location, "Location" %>
-      <%= form.text_field "work_experience[:location]" %>
+      <%= form.text_field "work_experience[][location]" %>
+    </div>
+
+      <div class="work-experience-input">
+      <%= form.label :title, "Job Title" %>
+      <%= form.text_field "work_experience[][title]" %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= form.label :from, "From" %>
+      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] } %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= form.label :to, "To" %>
+      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] } %>
     </div>
 
    

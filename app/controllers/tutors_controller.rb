@@ -4,9 +4,21 @@ class TutorsController < ApplicationController
 
   def create
     @tutor = @user.build_tutor(tutor_params)
-    #work_experience_array = params[:work_experience]
+    #save unpermitted parameters from tutor_params 
+    @work_experience_array = params[:tutor][:work_experience]
     if @tutor.save 
-      #@user.tutor.work_experience = work_experience_array
+      #save work_experience hash
+      @tutorSaved = @tutor
+      @work_experience_array.each do |w|
+        @tutorSaved.work_experience.push({
+          "company" => w[:company], 
+          "location" => w[:location],
+          "title" => w[:title],
+          "from" => Date.civil(w[:from]["(1i)"].to_i, w[:from]["(2i)"].to_i, w[:from]["(3i)"].to_i),
+          "to" => Date.civil(w[:to]["(1i)"].to_i, w[:to]["(2i)"].to_i, w[:to]["(3i)"].to_i)
+        })
+      end
+      @tutorSaved.save
       @user.has_profile = true
       respond_to do |f|
         if @user.save
@@ -45,11 +57,10 @@ class TutorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_params
-      debugger
-      # params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :work_experience, :company, :location, :education, :subjects, :user_id)
+      params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :work_experience, :education, :subjects, :user_id)
 
-      params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :education, :subjects, :user_id).tap do |whitelisted|
-        whitelisted[:work_experience] = params[:tutor][:work_experience]
-      end
+      # params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :education, :subjects, :user_id).tap do |whitelisted|
+      #   whitelisted[:work_experience] = params[:tutor][:work_experience]
+      # end
     end
 end

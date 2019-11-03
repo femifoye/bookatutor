@@ -35,7 +35,24 @@
         <td><%= @profile.description %></td>
         <td><%= @profile.years_teaching %></td>
         <td><%= @profile.teaching_style %></td>
-        <td><%= @profile.work_experience %></td>
+        <td><h6>Work Experience</h6>
+        <% @profile.work_experience.each do |w| %>
+          <h6>Company:</h6>
+          <p><%= w["company"] %>
+
+          <h6>Location:</h6>
+          <p><%= w["location"] %>
+
+          <h6>Title:</h6>
+          <p><%= w["title"] %>
+
+          <h6>From:</h6>
+          <p><%= w["from"] %>
+
+          <h6>To:</h6>
+          <p><%= w["to"] %>
+
+        <% end %>
         <td><%= @profile.education %></td>
         <td><%= @profile.subjects %></td>
         <td><%= @profile.user %></td>

@@ -1,7 +1,7 @@
 class Tutor < ApplicationRecord
   belongs_to :user
 
-  serialize :work_experience
+  serialize :work_experience, Array
   #accepts_nested_attributes_for :work_experience
   #attr_accessor :company, :location
 
