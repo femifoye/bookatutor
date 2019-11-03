@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :headline %>
-    <%= form.text_area :headline, id: :tutor_headline %>
+    <%= form.text_field :headline, id: :tutor_headline %>
   </div>
 
   <div class="field">
@@ -31,10 +31,37 @@
     <%= form.text_field :teaching_style, id: :tutor_teaching_style %>
   </div>
 
-  <div class="field">
-    <%= form.label :work_experience %>
-    <%= form.text_field :work_experience, id: :tutor_work_experience %>
+  <%= form.fields_for :work_experience do |g| %>
+  <div class="work-experience-field">
+    <h4>Work Experience</h4>
+    <div class="work-experience-input">
+      <%= g.label :company, "Company" %>
+      <%= g.text_field :company %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= g.label :location, "Location" %>
+      <%= g.text_field :location %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= g.label :title, "Job Title" %>
+      <%= g.text_field :title %>
+    </div>
+
+    <div class="work-experience-input">
+      <%= g.label :from, "From" %>
+      <%= g.date_select :from, { order: [:day, :month, :year] } %>
+    </div> 
+
+    <div class="work-experience-input">
+      <%= g.label :to, "To" %>
+      <%= g.date_select :to, { order: [:day, :month, :year] } %>
+    </div>
+
   </div>
+
+  <% end %>
 
   <div class="field">
     <%= form.label :education %>

@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
         @profile = send @prop[:show]
         respond_to do |format|
             if @profile.destroy
-                @user.has_profile == false
+                @user.has_profile = false
                 if @user.save
                     format.html { redirect_to root_url, notice: 'Your profile has been sucessfully deleted' }
                 else

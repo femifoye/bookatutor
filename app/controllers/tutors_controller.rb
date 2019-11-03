@@ -4,6 +4,7 @@ class TutorsController < ApplicationController
 
   def create
     @tutor = @user.build_tutor(tutor_params)
+    @tutor.work_experience = params[:work_experience]
     if @tutor.save 
       @user.has_profile = true
       respond_to do |f|
@@ -43,6 +44,6 @@ class TutorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_params
-      params.require(:tutor).permit(:headline, :description, :years_teaching, :teaching_style, :work_experience, :education, :subjects, :user_id)
+      params.require(:tutor).permit(:headline, :description, :years_teaching, :teaching_style, {:work_experience => []}, :education, :subjects, :user_id)
     end
 end

@@ -1,18 +1,16 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update, :destroy, :endsession, :details]
+  before_action :set_session, only: [:show, :index, :edit, :update, :endsession, :destroy, :details]
   before_action :set_booking
   before_action :set_user
 
   # GET /sessions
   # GET /sessions.json
   def index
-    @session = @booking.session()
   end
 
   # GET /sessions/1
   # GET /sessions/1.json
   def show
-    @session = @booking.session()
   end
 
   # GET /sessions/new
@@ -22,11 +20,9 @@ class SessionsController < ApplicationController
 
   # GET /sessions/1/edit
   def edit
-    @session = @booking.session()
   end
 
   def details
-    @session = @booking.session()
   end
 
   # POST /sessions
@@ -45,7 +41,6 @@ class SessionsController < ApplicationController
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
   def update
-    @session = @booking.session()
     respond_to do |format|
       if @session.update(session_params)
         format.html { redirect_to user_booking_session_url, notice: 'Session was successfully updated.' }
@@ -57,7 +52,6 @@ class SessionsController < ApplicationController
 
   def endsession
     if session_started
-      @session = @booking.session()
       @session.end = Time.now
       respond_to do | format |
         if @session.save
@@ -67,6 +61,7 @@ class SessionsController < ApplicationController
         end
       end
     else
+      flash[:notice] = "You cannot end a session that hasn't started"
       redirect_to user_booking_session_url
     end
   end
@@ -74,7 +69,6 @@ class SessionsController < ApplicationController
   # DELETE /sessions/1
   # DELETE /sessions/1.json
   def destroy
-    @session = booking.session()
     @session.destroy
     respond_to do |format|
       format.html { redirect_to user_bookings_path(@user, @bookings), notice: 'Session was successfully cancelled.' }
@@ -84,7 +78,7 @@ class SessionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_session
-      @session = Session.find(params[:id])
+      @session = @booking.session()
     end
 
     def set_booking

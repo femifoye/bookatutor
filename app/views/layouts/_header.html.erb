@@ -14,7 +14,7 @@
                 <li class="menu-list"><%= link_to 'Your Profile', user_profile_url(current_user) %></li>
 
               <% else %>
-                <li class="menu-list"><%= link_to 'Sign In', new_user_registration_path %></li>
+                <li class="menu-list"><%= link_to 'Sign In', new_user_session_path %></li>
               <% end %>
             </ul>
           </nav>

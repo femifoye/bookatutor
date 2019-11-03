@@ -1,5 +1,9 @@
 html body {
   background-color: #f0f0f0;
+  a:visited,
+  a {
+    color: inherit;
+  }
 }
 
 .btn-tutor {
@@ -16,3 +20,11 @@ html body {
   display: flex !important;
   margin: 0 auto;
 }
+
+.wrap-center {
+  margin: 20px auto;
+  width: fit-content;
+  padding: 10px;
+}
+
+
