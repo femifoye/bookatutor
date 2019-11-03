@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :headline %>
-    <%= form.text_field :headline, id: :tutor_headline %>
+    <%= form.text_field :headline, id: :tutor_headline, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :tutor_description %>
+    <%= form.text_area :description, id: :tutor_description, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :years_teaching %>
-    <%= form.number_field :years_teaching, id: :tutor_years_teaching %>
+    <%= form.number_field :years_teaching, id: :tutor_years_teaching, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :teaching_style %>
-    <%= form.text_field :teaching_style, id: :tutor_teaching_style %>
+    <%= form.text_field :teaching_style, id: :tutor_teaching_style, :class => 'form-control' %>
   </div>
 
 
@@ -37,27 +37,27 @@
     
     <div class="work-experience-input">
       <%= form.label :company, "Company" %>
-      <%= form.text_field "work_experience[][company]" %>
+      <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :location, "Location" %>
-      <%= form.text_field "work_experience[][location]" %>
+      <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :title, "Job Title" %>
-      <%= form.text_field "work_experience[][title]" %>
+      <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :from, "From" %>
-      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] } %>
+      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :to, "To" %>
-      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] } %>
+      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
     </div>
 
    
@@ -68,27 +68,27 @@
 
     <div class="work-experience-input">
       <%= form.label :company, "Company" %>
-      <%= form.text_field "work_experience[][company]" %>
+      <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :location, "Location" %>
-      <%= form.text_field "work_experience[][location]" %>
+      <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
     </div>
 
       <div class="work-experience-input">
       <%= form.label :title, "Job Title" %>
-      <%= form.text_field "work_experience[][title]" %>
+      <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :from, "From" %>
-      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] } %>
+      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
     </div>
 
     <div class="work-experience-input">
       <%= form.label :to, "To" %>
-      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] } %>
+      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
     </div>
 
    
@@ -99,17 +99,17 @@
 
   <div class="field">
     <%= form.label :education %>
-    <%= form.text_field :education, id: :tutor_education %>
+    <%= form.text_field :education, id: :tutor_education, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :subjects %>
-    <%= form.text_field :subjects, id: :tutor_subjects %>
+    <%= form.text_field :subjects, id: :tutor_subjects,:class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :tutor_user_id %>
+    <%= form.text_field :user_id, id: :tutor_user_id, :class => 'form-control' %>
   </div>
 
   <div class="actions">
