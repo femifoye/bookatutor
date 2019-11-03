@@ -36,13 +36,13 @@
   <div class="work-experience-field">
     
     <div class="work-experience-input">
-      <%= label_tag "company_name", "Company" %>
-      <%= text_field_tag "work_experience[][company]" %>
+      <%= form.label :company, "Company" %>
+      <%= form.text_field "work_experience[][company]" %>
     </div>
 
     <div class="work-experience-input">
-      <%= label_tag "location_name", "Location" %>
-      <%= text_field_tag "work_experience[][location]" %>
+      <%= form.label :location, "Location" %>
+      <%= form.text_field "work_experience[][location]" %>
     </div>
 
    
@@ -52,13 +52,13 @@
   <div class="work-experience-field">
 
     <div class="work-experience-input">
-      <%= label_tag "company_name", "Company" %>
-      <%= text_field_tag "work_experience[][company]" %>
+      <%= form.label :company, "Company" %>
+      <%= form.text_field "work_experience[:company]" %>
     </div>
 
     <div class="work-experience-input">
-      <%= label_tag "location_name", "Location" %>
-      <%= text_field_tag "work_experience[][location]" %>
+      <%= form.label :location, "Location" %>
+      <%= form.text_field "work_experience[:location]" %>
     </div>
 
    

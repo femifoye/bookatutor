@@ -46,10 +46,10 @@ class TutorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_params
       debugger
-      params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :company, :location, :education, :subjects, :user_id)
+      # params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :work_experience, :company, :location, :education, :subjects, :user_id)
 
-      # params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :education, :subjects, :user_id).tap do |whitelisted|
-      #   whitelisted[:work_experience] = params[:work_experience].permit!
-      # end
+      params.require(:tutor).permit(:headline, :description, :years_teaching , :teaching_style, :education, :subjects, :user_id).tap do |whitelisted|
+        whitelisted[:work_experience] = params[:tutor][:work_experience]
+      end
     end
 end
