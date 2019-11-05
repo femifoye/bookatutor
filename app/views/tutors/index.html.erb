@@ -37,23 +37,35 @@
         <td><%= @profile.teaching_style %></td>
         <td><h6>Work Experience</h6>
         <% @profile.work_experience.each do |w| %>
-          <h6>Company:</h6>
-          <p><%= w["company"] %>
+            <h6>Company:</h6>
+            <p><%= w["company"] %>
 
-          <h6>Location:</h6>
-          <p><%= w["location"] %>
+            <h6>Location:</h6>
+            <p><%= w["location"] %>
 
-          <h6>Title:</h6>
-          <p><%= w["title"] %>
+            <h6>Title:</h6>
+            <p><%= w["title"] %>
 
-          <h6>From:</h6>
-          <p><%= w["from"] %>
+            <h6>From:</h6>
+            <p><%= w["from"] %>
 
-          <h6>To:</h6>
-          <p><%= w["to"] %>
+            <h6>To:</h6>
+            <p><%= w["to"] %>
 
         <% end %>
-        <td><%= @profile.education %></td>
+        <td><h6>Education</h6>
+        <% @profile.education.each do |e| %>
+          <h6>School:</h6>
+          <p><%= e["school"] %>
+
+          <h6>Degree:</h6>
+          <p><%= e["degree"] %>
+
+          <h6>Graduated:</h6>
+          <p><%= e["graduated"] %>
+
+
+        <% end %>
         <td><%= @profile.subjects %></td>
         <td><%= @profile.user %></td>
         <td><%= link_to 'Show', user_profile_url %></td>

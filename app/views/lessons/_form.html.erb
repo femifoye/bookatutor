@@ -1,0 +1,37 @@
+<%= form_with(model: [@user, @booking, @lesson], local: true) do |form| %>
+  <% if @lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+
+      <ul>
+      <% @lesson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.datetime_select :start, id: :lesson_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.datetime_select :end, id: :lesson_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :members %>
+    <%= form.text_area :members, id: :lesson_members %>
+  </div>
+
+  <div class="field">
+    <%= form.label :booking_id %>
+    <%= form.text_field :booking_id, id: :lesson_booking_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

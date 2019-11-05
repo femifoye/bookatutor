@@ -27,4 +27,23 @@ html body {
   padding: 10px;
 }
 
+.form-center {
+  margin: 20px auto;
+  padding: 10px;
+  width: 50%
+}
+
+textarea {
+  height: 215px;
+}
+
+.date-select{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.hide {
+  display: none !important;
+}
+
 

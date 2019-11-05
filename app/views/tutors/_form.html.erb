@@ -31,88 +31,198 @@
     <%= form.text_field :teaching_style, id: :tutor_teaching_style, :class => 'form-control' %>
   </div>
 
+  <div class="work-experience">
 
-  <h4>Work Experience</h4>
-  <div class="work-experience-field">
+    <h4>Relevant Work Experience</h4>
+
+    <div class="work-experience-field dynamic-field">
+      
+      <div class="field work-experience-input">
+        <%= form.label :company, "Company" %>
+        <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :location, "Location" %>
+        <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :title, "Job Title" %>
+        <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :from, "From" %>
+        <div class="date-select">
+          <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+        </div>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :to, "To" %>
+        <div class="date-select">
+          <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-experience-field dynamic-field hide">
+      
+      <div class="field work-experience-input">
+        <%= form.label :company, "Company" %>
+        <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :location, "Location" %>
+        <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :title, "Job Title" %>
+        <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :from, "From" %>
+        <div class="date-select">
+          <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+        </div>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :to, "To" %>
+        <div class="date-select">
+          <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-experience-field dynamic-field hide">
+      
+      <div class="field work-experience-input">
+        <%= form.label :company, "Company" %>
+        <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :location, "Location" %>
+        <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :title, "Job Title" %>
+        <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :from, "From" %>
+        <div class="date-select">
+          <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+        </div>
+      </div>
+
+      <div class="field work-experience-input">
+        <%= form.label :to, "To" %>
+        <div class="date-select">
+          <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+        </div>
+      </div>
+    </div>
+
     
-    <div class="work-experience-input">
-      <%= form.label :company, "Company" %>
-      <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
-    </div>
 
-    <div class="work-experience-input">
-      <%= form.label :location, "Location" %>
-      <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
+    <div class="work-experience-add-btn">
+      <button class="btn btn-primary add-button">Add Work Experience</button>
     </div>
-
-    <div class="work-experience-input">
-      <%= form.label :title, "Job Title" %>
-      <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
-    </div>
-
-    <div class="work-experience-input">
-      <%= form.label :from, "From" %>
-      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
-    </div>
-
-    <div class="work-experience-input">
-      <%= form.label :to, "To" %>
-      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
-    </div>
-
-   
 
   </div>
 
-  <div class="work-experience-field">
+    <div class="education">
 
-    <div class="work-experience-input">
-      <%= form.label :company, "Company" %>
-      <%= form.text_field "work_experience[][company]", :class => 'form-control' %>
+      <h4>Relevant Education</h4>
+
+      <div class="education-field dynamic-field">
+        
+        <div class="field education-input">
+          <%= form.label :school, "School" %>
+          <%= form.text_field "education[][school]", :class => 'form-control' %>
+        </div>
+
+        <div class="education-input">
+          <%= form.label :degree, "Degree" %>
+          <%= form.text_field "education[][degree]", :class => 'form-control' %>
+        </div>
+
+        <div class="field education-input">
+          <%= form.label :graduated, "Graduated" %>
+          <div class="date-select">
+            <%= form.date_select "education[]graduated]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="education-field dynamic-field hide">
+        
+        <div class="field education-input">
+          <%= form.label :school, "School" %>
+          <%= form.text_field "education[][school]", :class => 'form-control' %>
+        </div>
+
+        <div class="education-input">
+          <%= form.label :degree, "Degree" %>
+          <%= form.text_field "education[][degree]", :class => 'form-control' %>
+        </div>
+
+        <div class="field education-input">
+          <%= form.label :graduated, "Graduated" %>
+          <div class="date-select">
+            <%= form.date_select "education[]graduated]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="education-field dynamic-field hide">
+        
+        <div class="field education-input">
+          <%= form.label :school, "School" %>
+          <%= form.text_field "education[][school]", :class => 'form-control' %>
+        </div>
+
+        <div class="education-input">
+          <%= form.label :degree, "Degree" %>
+          <%= form.text_field "education[][degree]", :class => 'form-control' %>
+        </div>
+
+        <div class="field education-input">
+          <%= form.label :graduated, "Graduated" %>
+          <div class="date-select">
+            <%= form.date_select "education[]graduated]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="education-add-btn">
+        <button class="btn btn-primary add-button">Add Education</button>
+      </div>
+
+
     </div>
+ 
+    
 
-    <div class="work-experience-input">
-      <%= form.label :location, "Location" %>
-      <%= form.text_field "work_experience[][location]", :class => 'form-control' %>
-    </div>
-
-      <div class="work-experience-input">
-      <%= form.label :title, "Job Title" %>
-      <%= form.text_field "work_experience[][title]", :class => 'form-control' %>
-    </div>
-
-    <div class="work-experience-input">
-      <%= form.label :from, "From" %>
-      <%= form.date_select "work_experience[]from]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
-    </div>
-
-    <div class="work-experience-input">
-      <%= form.label :to, "To" %>
-      <%= form.date_select "work_experience[][to]", { order: [:day, :month, :year] }, { :class => 'form-control' } %>
-    </div>
-
-   
-
-  </div>
-
-
-
-  <div class="field">
-    <%= form.label :education %>
-    <%= form.text_field :education, id: :tutor_education, :class => 'form-control' %>
-  </div>
 
   <div class="field">
     <%= form.label :subjects %>
     <%= form.text_field :subjects, id: :tutor_subjects,:class => 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :tutor_user_id, :class => 'form-control' %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Profile", :class => 'btn btn-primary' %>
   </div>
 <% end %>

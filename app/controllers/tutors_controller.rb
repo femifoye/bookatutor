@@ -6,11 +6,12 @@ class TutorsController < ApplicationController
     @tutor = @user.build_tutor(tutor_params)
     #save unpermitted parameters from tutor_params 
     @work_experience_array = params[:tutor][:work_experience]
+    @education_array = params[:tutor][:education]
     if @tutor.save 
       #save work_experience hash
-      @tutorSaved = @tutor
+      #@tutorSaved = @tutor
       @work_experience_array.each do |w|
-        @tutorSaved.work_experience.push({
+        @tutor.work_experience.push({
           "company" => w[:company], 
           "location" => w[:location],
           "title" => w[:title],
@@ -18,13 +19,23 @@ class TutorsController < ApplicationController
           "to" => Date.civil(w[:to]["(1i)"].to_i, w[:to]["(2i)"].to_i, w[:to]["(3i)"].to_i)
         })
       end
-      @tutorSaved.save
-      @user.has_profile = true
-      respond_to do |f|
-        if @user.save
-          f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
-        else
-          puts "No such User"
+      if @tutor.save
+        @education_array.each do |e|
+          @tutor.education.push({
+            "school" => e[:school],
+            "degree" => e[:degree],
+            "graduated" => Date.civil(e[:graduated]["(1i)"].to_i, e[:graduated]["(2i)"].to_i, e[:graduated]["(3i)"].to_i)
+          })
+        end
+      end
+      if @tutor.save
+        @user.has_profile = true
+        respond_to do |f|
+          if @user.save
+            f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
+          else
+            puts "No such User"
+          end
         end
       end
     else

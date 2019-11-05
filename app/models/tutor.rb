@@ -11,6 +11,6 @@ class Tutor < ApplicationRecord
   #   self.work_experience.collect{|k,v| [k,v]}
   # end
 
-  serialize :education 
+  serialize :education, Array 
   serialize :subjects
 end

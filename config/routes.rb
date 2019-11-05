@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'signup', to: 'users/registrations#new'
     get 'signin', to: 'users/sessions#new'
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
     delete 'signout', to: 'users/sessions#destroy'
   end
 
@@ -44,10 +45,10 @@ Rails.application.routes.draw do
     delete 'profile/:id', to: 'profiles#destroy', :as => :profile_delete
     
     resources :bookings do
-      resources :sessions
+      resources :lessons
 
-      post 'sessions/:id/end', to: 'sessions#endsession', :as => :session_end
-      get 'sessions/:id/details', to: 'sessions#details', :as => :session_detail
+      post 'lessons/:id/end', to: 'lessons#endsession', :as => :lesson_end
+      get 'lessons/:id/details', to: 'lessons#details', :as => :lesson_detail
     end
   end
 

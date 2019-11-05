@@ -1,0 +1,6 @@
+<h1>Editing lesson</h1>
+
+<%= render 'form', lesson: @lesson %>
+
+<%= link_to 'Show', user_booking_lesson_path(@booking, @lesson) %> |
+<%= link_to 'Back', user_bookings_path(@user, @bookings) %>
