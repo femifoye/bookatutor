@@ -1,12 +1,20 @@
+
+require 'Matcher'
+
 class PagesController < ApplicationController
   #before_action :authenticate_user!, only: [:home]
-  # before_action :set_user
+  before_action :set_user
   def home
     @pageTitle = "Home"
+      @tutors = Tutor.all
+      debugger
+      @match = Matcher.matchTutor(@user, @tutors)
+
 
   end
 
-  # def set_user
-  #   @user = User.find(params[:user_id])
-  # end
+  private
+  def set_user
+    @user = current_user
+  end
 end

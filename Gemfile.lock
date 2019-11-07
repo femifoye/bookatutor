@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Matcher (0.0.7)
     actioncable (5.1.7)
       actionpack (= 5.1.7)
       nio4r (~> 2.0)
@@ -186,6 +187,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  Matcher (= 0.0.7)
   bootstrap (~> 4.0.0)
   byebug
   capybara (>= 2.15)
