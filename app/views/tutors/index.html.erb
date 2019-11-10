@@ -13,68 +13,100 @@
 
 <% else %>
 
+  <div class="profile-body">
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Headline</h4>
+      </div>
+      <div class="profile-paragraph">
+        <p><%= @profile.headline %></p>
+      </div>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Headline</th>
-      <th>Description</th>
-      <th>Years teaching</th>
-      <th>Teaching style</th>
-      <th>Work experience</th>
-      <th>Education</th>
-      <th>Subjects</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Description</h4>
+      </div>
+      <div class="profile-paragraph">
+        <p><%= @profile.description %></p>
+      </div>
+    </div>
 
-  <tbody>
-      <tr>
-        <td><%= @profile.headline %></td>
-        <td><%= @profile.description %></td>
-        <td><%= @profile.years_teaching %></td>
-        <td><%= @profile.teaching_style %></td>
-        <td><h6>Work Experience</h6>
-        <% @profile.work_experience.each do |w| %>
-            <h6>Company:</h6>
-            <p><%= w["company"] %>
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Years Teaching</h4>
+      </div>
+      <div class="profile-paragraph">
+        <p><%= @profile.years_teaching %></p>
+      </div>
+    </div>
 
-            <h6>Location:</h6>
-            <p><%= w["location"] %>
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Teaching Style</h4>
+      </div>
+      <div class="profile-paragraph">
+        <p><%= @profile.teaching_style %></p>
+      </div>
+    </div>
 
-            <h6>Title:</h6>
-            <p><%= w["title"] %>
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Work Experience</h4>
+      </div>
+      <% @profile.work_experience.each do |w| %>
+        <h6>Company:</h6>
+        <p><%= w["company"] %>
 
-            <h6>From:</h6>
-            <p><%= w["from"] %>
+        <h6>Location:</h6>
+        <p><%= w["location"] %>
 
-            <h6>To:</h6>
-            <p><%= w["to"] %>
+        <h6>Title:</h6>
+        <p><%= w["title"] %>
 
-        <% end %>
-        <td><h6>Education</h6>
-        <% @profile.education.each do |e| %>
-          <h6>School:</h6>
-          <p><%= e["school"] %>
+        <h6>From:</h6>
+        <p><%= w["from"] %>
 
-          <h6>Degree:</h6>
-          <p><%= e["degree"] %>
+        <h6>To:</h6>
+        <p><%= w["to"] %>
 
-          <h6>Graduated:</h6>
-          <p><%= e["graduated"] %>
+      <% end %>
+    </div>
+
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Education</h4>
+      </div>
+      <% @profile.education.each do |e| %>
+        <h6>School:</h6>
+        <p><%= e["school"] %>
+
+        <h6>Degree:</h6>
+        <p><%= e["degree"] %>
+
+        <h6>Graduated:</h6>
+        <p><%= e["graduated"] %>
 
 
-        <% end %>
-        <td><%= @profile.subjects %></td>
-        <td><%= @profile.user %></td>
-        <td><%= link_to 'Show', user_profile_url %></td>
-        <%= link_to 'Delete', user_profile_delete_path(@user, @profile), method: :delete, data: { confirm: 'Are you sure?' } %> 
-      </tr>
-  </tbody>
-</table>
+      <% end %>
+    </div>
+
+    <div class="profile-entry">
+      <div class="profile-header">
+        <h4>Subjects Tutored</h4>
+      </div>
+      <div class="profile-paragraph">
+        <p><%= @profile.subjects %></p>
+      </div>
+    </div>
+
+    <%= link_to 'Delete', user_profile_delete_path(@user, @profile), method: :delete, data: { confirm: 'Are you sure?' } %> 
+       
+  </div>
+
+  
 
 <% end %>
 
-<br>
+
 

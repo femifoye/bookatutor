@@ -18,11 +18,14 @@ class ProfilesController < ApplicationController
 
 
     def new
-
+        
+        #check if user has profile. Redirect to user profile if true
         if @user.has_profile == true
             redirect_to user_profile_url, :notice => "You have already created a profile"
         else
         @profile = send @prop[:build]
+        #get all subjects and store in instance var @subject
+        @subjects = Subject.all
         render "#{@prop[:render]}/new"
         end
     end

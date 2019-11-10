@@ -1,3 +1,13 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.student-profile-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.select-group {
+    display: flex;
+    justify-content: space-around;
+}

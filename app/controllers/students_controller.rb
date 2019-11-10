@@ -4,8 +4,17 @@ class StudentsController < ApplicationController
 
   def create
     @student = @user.build_student(student_params)
-    if @student.save 
-      @user.has_profile = true
+    @subject_competency_array = params[:student][:subjects_of_interest]
+    @student.save 
+    @subject_competency_array.each do |s|
+      debugger
+      @student.subjects_of_interest.push({
+        "subject" => s[:subject],
+        "competency" => s[:competency]
+      })
+    end
+    @student.save
+     @user.has_profile = true
       respond_to do |f|
         if @user.save
           f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
@@ -13,9 +22,9 @@ class StudentsController < ApplicationController
           puts "No such User"
         end
       end
-    else
-      render :action => 'profiles/new'
-    end
+    # else
+    #   render :action => 'profiles/new'
+    # end
   end
 
   # PATCH/PUT /students/1

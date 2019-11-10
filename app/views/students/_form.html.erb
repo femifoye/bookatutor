@@ -1,4 +1,4 @@
-<%= form_with(model: [@user, @profile], local: true) do |form| %>
+<%= form_with(model: [@user, @profile], local: true, :class => "student-profile-form") do |form| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -13,25 +13,34 @@
 
   <div class="field">
     <%= form.label :education_level %>
-    <%= form.text_field :education_level, id: :student_education_level %>
+    <%= form.text_field :education_level, id: :student_education_level, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :student_description %>
+    <%= form.text_area :description, id: :student_description, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :subjects_of_interest %>
-    <%= form.text_area :subjects_of_interest, id: :student_subjects_of_interest %>
-  </div>
+    <p>Tell us how competent you are in the subjects you pick. 3 for "Most competent"
+    and 1 for "Least competent". This will help us recommend the perfect tutors for you.</p>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :student_user_id %>
+    <% (1..3).to_a.each do  %>
+      <div class="select-group">
+        <div class="subject-group">
+          <%= form.label "Subject" %>
+          <%= form.select( "subjects_of_interest[][subject]", @subjects.map{|subject| subject.subject_name}, {}, {:class => "form-control"}) %>
+        </div>
+        <div class="competency-group">
+            <%= form.label "Competency" %>
+            <%= form.select( "subjects_of_interest[][competency]", (1..3).to_a.map{|c| c }, {}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Profile", :class => 'btn btn-primary btn-center' %>
   </div>
 <% end %>

@@ -20,6 +20,7 @@ class TutorsController < ApplicationController
         })
       end
       if @tutor.save
+        debugger
         @education_array.each do |e|
           @tutor.education.push({
             "school" => e[:school],
