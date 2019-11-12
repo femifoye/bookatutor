@@ -4,9 +4,11 @@ class TutorsController < ApplicationController
 
   def create
     @tutor = @user.build_tutor(tutor_params)
+    debugger
     #save unpermitted parameters from tutor_params 
     @work_experience_array = params[:tutor][:work_experience]
     @education_array = params[:tutor][:education]
+    @subject_array = params[:tutor][:subjects]
     if @tutor.save 
       #save work_experience hash
       #@tutorSaved = @tutor
@@ -20,13 +22,17 @@ class TutorsController < ApplicationController
         })
       end
       if @tutor.save
-        debugger
         @education_array.each do |e|
           @tutor.education.push({
             "school" => e[:school],
             "degree" => e[:degree],
             "graduated" => Date.civil(e[:graduated]["(1i)"].to_i, e[:graduated]["(2i)"].to_i, e[:graduated]["(3i)"].to_i)
           })
+        end
+      end
+      if @tutor.save
+        @subject_array.each do |s|
+          @tutor.subjects.push(s[:subject])
         end
       end
       if @tutor.save

@@ -96,7 +96,9 @@
         <h4>Subjects Tutored</h4>
       </div>
       <div class="profile-paragraph">
-        <p><%= @profile.subjects %></p>
+        <% @profile.subjects.each do |s| %>
+          <p><%= s %></p>
+        <% end %>
       </div>
     </div>
 

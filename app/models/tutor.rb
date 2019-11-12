@@ -12,5 +12,5 @@ class Tutor < ApplicationRecord
   # end
 
   serialize :education, Array
-  serialize :subjects
+  serialize :subjects, Array
 end

@@ -6,9 +6,10 @@ class PagesController < ApplicationController
   before_action :set_user
   def home
     @pageTitle = "Home"
-      # @tutors = Tutor.all
-      # debugger
-      # @match = Matcher.matchTutor(@user, @tutors)
+    if current_user
+      @tutors = Tutor.all
+      @match = Matcher.matchTutor(@user, @tutors)
+    end
 
 
   end

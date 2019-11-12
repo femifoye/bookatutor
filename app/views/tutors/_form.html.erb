@@ -104,7 +104,12 @@
 
   <div class="field">
     <%= form.label :subjects %>
-    <%= form.text_field :subjects, id: :tutor_subjects,:class => 'form-control' %>
+      <% (1..3).to_a.each do  %>
+        <div class="subject-group">
+          <%= form.label "Subject" %>
+          <%= form.select( "subjects[][subject]", @subjects.map{|subject| subject.subject_name}, {}, {:class => "form-control"}) %>
+        </div>
+    <% end %>
   </div>
 
 
