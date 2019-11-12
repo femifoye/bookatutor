@@ -4,7 +4,6 @@ class TutorsController < ApplicationController
 
   def create
     @tutor = @user.build_tutor(tutor_params)
-    debugger
     #save unpermitted parameters from tutor_params 
     @work_experience_array = params[:tutor][:work_experience]
     @education_array = params[:tutor][:education]

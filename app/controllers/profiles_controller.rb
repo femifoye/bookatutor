@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
         else
         @profile = send @prop[:build]
         #get all subjects and store in instance var @subject
-        @subjects = Subject.all
+        @subjects = Subject.all.order('subject_name ASC')
         render "#{@prop[:render]}/new"
         end
     end

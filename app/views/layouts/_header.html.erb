@@ -6,8 +6,8 @@
         <div class="navigation">
           <nav>
             <ul class="navigation-menu">
-              <li class="menu-list">Home</li>
-              <li class="menu-list">Tutors</li>
+              <li class="menu-list"><%= link_to 'Home', root_path %></li>
+              <li class="menu-list"><%= link_to 'Tutors', all_tutors_path %></li>
               <li class="menu-list">Dashboard</li>
               <% if user_signed_in? %>
                 <li class="menu-list"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>

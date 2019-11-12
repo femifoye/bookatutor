@@ -6,16 +6,25 @@ class PagesController < ApplicationController
   before_action :set_user
   def home
     @pageTitle = "Home"
-    if current_user
-      @tutors = Tutor.all
+    if (@user and @user.role == "Student")
+      set_tutors
       @match = Matcher.matchTutor(@user, @tutors)
     end
+    @users = User.all
 
 
+  end
+
+  def tutors
+    set_tutors
   end
 
   private
   def set_user
     @user = current_user
+  end
+
+  def set_tutors
+    @tutors = Tutor.all
   end
 end

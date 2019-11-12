@@ -7,7 +7,6 @@ class StudentsController < ApplicationController
     @subject_competency_array = params[:student][:subjects_of_interest]
     @student.save 
     @subject_competency_array.each do |s|
-      debugger
       @student.subjects_of_interest.push({
         "subject" => s[:subject],
         "competency" => s[:competency]

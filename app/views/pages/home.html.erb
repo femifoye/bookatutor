@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<% if current_user %>
+<% if current_user and current_user.role == "Student" %>
 <section id="recommend_signed_in">
   <div class="container recommend_wrap">
     <div class="recommend_header text-center">
@@ -24,7 +24,7 @@
     </div>
     <div class="recommend_body">
     <% @match.each do |m| %>
-      <div class="recommend_card">
+      <div class="card recommend_card">
         <div class="recommend_card_img">
           <img src="https://res.cloudinary.com/house16-design-studio/image/upload/v1573566670/bookatutor/default-profile.png" alt="Book A Tutor">
         </div>
@@ -37,8 +37,9 @@
         <div class="recommend_card_view_profile_button">
           <%= link_to  "View Profile", user_profile_path(m.user) %>
         </div>
-      <% end %>
+      
       </div>
+    <% end %>
     </div>
   </div>
 </section>

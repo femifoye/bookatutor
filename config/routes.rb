@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get '/register', to: 'users#new'
+  get '/tutors', to: 'pages#tutors', :as => :all_tutors
 end
 
 

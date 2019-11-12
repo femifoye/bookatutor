@@ -3,18 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#recommended_signed_in {
+#recommend_signed_in {
     padding: 30px;
 }
 
-.recommend_card {
+
+.recommend_body,
+.all_tutors_body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+}
+
+.card {
     max-width: 200px;
     background-color: white;
     padding: 0 15px 20px;
     box-shadow: 4px 1px 7px rgba(199, 199, 199, 0.3);
 }
 
-.recommend_card_img {
+.recommend_card_img,
+.all_tutors_card_img {
     padding: 10px 0;
     img {
         width: auto;
@@ -23,4 +32,8 @@
         margin: 20px auto;
         border-radius: 100px;
     }
+}
+
+.all_tutors_header {
+    padding: 30px;
 }
