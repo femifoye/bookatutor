@@ -9,6 +9,12 @@ class PagesController < ApplicationController
     if (@user and @user.role == "Student")
       set_tutors
       @match = Matcher.matchTutor(@user, @tutors)
+      @tutors_to_recommend = []
+      @match.each do |m|
+        if(m["competency_match"].length > 0)
+          @tutors_to_recommend.push(m["tutor"])
+        end
+      end
     end
     @users = User.all
 

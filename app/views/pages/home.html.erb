@@ -23,7 +23,7 @@
       <p>Hello <%= current_user.firstname %>, Here are some tutors recommended for you</p>
     </div>
     <div class="recommend_body">
-    <% @match.each do |m| %>
+    <% @tutors_to_recommend.each do |m| %>
       <div class="card recommend_card">
         <div class="recommend_card_img">
           <img src="https://res.cloudinary.com/house16-design-studio/image/upload/v1573566670/bookatutor/default-profile.png" alt="Book A Tutor">
