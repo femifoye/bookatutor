@@ -1,0 +1,765 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2019-10-20 13:21:42.272627'
+    - '2019-10-20 13:21:42.272627'
+
+---
+bookings:
+  columns:
+  - id
+  - date
+  - location
+  - user_id
+  - created_at
+  - updated_at
+  - user_booked
+  records: 
+  - - 2
+    - '2019-11-01 13:15:00'
+    - Aberdeen
+    - 4
+    - '2019-11-01 13:17:38.970979'
+    - '2019-11-01 13:17:38.970979'
+    - 
+  - - 3
+    - '2019-11-01 13:17:00'
+    - Dublin
+    - 4
+    - '2019-11-01 13:18:01.562999'
+    - '2019-11-01 14:09:56.662565'
+    - 3
+
+---
+lessons:
+  columns:
+  - id
+  - start
+  - end
+  - members
+  - booking_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - '2019-11-01 14:21:00'
+    - '2019-11-01 14:50:26.026124'
+    - "2,\r\n1"
+    - 3
+    - '2019-11-01 14:21:35.241169'
+    - '2019-11-01 14:50:26.029129'
+
+---
+students:
+  columns:
+  - id
+  - education_level
+  - description
+  - subjects_of_interest
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 26
+    - cvdfw
+    - dsverfgwaes
+    - |
+      ---
+      - subject: Mathematics
+        competency: '3'
+      - subject: Marketing
+        competency: '1'
+      - subject: Computer Programming
+        competency: '2'
+    - 9
+    - '2019-11-11 10:39:06.542965'
+    - '2019-11-11 10:39:23.507609'
+  - - 27
+    - High School
+    - Looking to get help in Marketing and Business related courses
+    - |
+      ---
+      - subject: Marketing
+        competency: '3'
+      - subject: International Business
+        competency: '1'
+      - subject: Human Resources and Management
+        competency: '2'
+    - 3
+    - '2019-11-12 14:31:49.293186'
+    - '2019-11-12 14:32:06.142063'
+  - - 28
+    - University
+    - Looking to improve my skills in digital media and theatre.
+    - |
+      ---
+      - subject: Digital Media
+        competency: '1'
+      - subject: Graphic Designing
+        competency: '2'
+      - subject: Literature
+        competency: '1'
+    - 10
+    - '2019-11-12 14:49:50.484951'
+    - '2019-11-12 14:49:50.592023'
+  - - 29
+    - Post Graduate
+    - Currently doing my masters in Civil Engineering and need a tutor to put me through
+      some new concepts.
+    - |
+      ---
+      - subject: Physics
+        competency: '2'
+      - subject: Civil Engineering
+        competency: '1'
+      - subject: 3D Modelling
+        competency: '1'
+    - 12
+    - '2019-11-12 15:11:14.878380'
+    - '2019-11-12 15:11:15.041539'
+  - - 30
+    - Post Graduate
+    - Looking to learn
+    - |
+      ---
+      - subject: 3D Modelling
+        competency: '1'
+      - subject: Civil Engineering
+        competency: '2'
+      - subject: Physics
+        competency: '1'
+    - 14
+    - '2019-11-12 20:11:26.422480'
+    - '2019-11-12 20:11:26.670656'
+  - - 31
+    - University
+    - Currently in my final year of Marketing and need help to get through the next
+      couple of months and modules.
+    - |
+      ---
+      - subject: Marketing
+        competency: '2'
+      - subject: Economics
+        competency: '1'
+      - subject: Entrepreneurship
+        competency: '3'
+    - 16
+    - '2019-11-12 20:23:38.453686'
+    - '2019-11-12 20:23:38.623913'
+  - - 32
+    - University
+    - Econ Major looking for a little help.
+    - |
+      ---
+      - subject: Political Science
+        competency: '3'
+      - subject: Econometrics
+        competency: '2'
+      - subject: Economics
+        competency: '2'
+    - 18
+    - '2019-11-12 20:34:42.451646'
+    - '2019-11-12 20:34:42.667830'
+  - - 33
+    - High School
+    - Looking for a music instructor
+    - |
+      ---
+      - subject: Music
+        competency: '1'
+      - subject: Digital Media
+        competency: '2'
+      - subject: Literature
+        competency: '1'
+    - 20
+    - '2019-11-12 20:40:09.833623'
+    - '2019-11-12 20:40:09.986725'
+
+---
+subjects:
+  columns:
+  - id
+  - subject_name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Computer Science
+    - '2019-10-26 16:45:18.958051'
+    - '2019-10-26 16:45:18.958051'
+  - - 2
+    - Mathematics
+    - '2019-10-26 16:46:00.258079'
+    - '2019-10-26 16:46:00.258079'
+  - - 3
+    - Graphic Designing
+    - '2019-10-26 16:47:37.051324'
+    - '2019-10-26 16:47:37.051324'
+  - - 4
+    - SQL
+    - '2019-10-26 16:50:44.644497'
+    - '2019-10-26 16:50:44.644497'
+  - - 5
+    - 3D Modelling
+    - '2019-10-26 16:51:48.781706'
+    - '2019-10-26 16:51:48.781706'
+  - - 6
+    - Marketing
+    - '2019-10-26 16:52:10.204807'
+    - '2019-10-26 16:52:10.204807'
+  - - 7
+    - Physics
+    - '2019-11-10 19:34:02.267406'
+    - '2019-11-10 19:34:02.267406'
+  - - 8
+    - Chemistry
+    - '2019-11-10 19:34:27.681020'
+    - '2019-11-10 19:34:27.681020'
+  - - 9
+    - Human Resources and Management
+    - '2019-11-10 19:34:42.618764'
+    - '2019-11-10 19:34:42.618764'
+  - - 10
+    - International Business
+    - '2019-11-10 19:34:53.830626'
+    - '2019-11-10 19:34:53.830626'
+  - - 11
+    - Computer Programming
+    - '2019-11-10 19:35:07.650337'
+    - '2019-11-10 19:35:07.650337'
+  - - 12
+    - Cloud Computing
+    - '2019-11-10 19:35:19.851481'
+    - '2019-11-10 19:35:19.851481'
+  - - 13
+    - Information Technology
+    - '2019-11-12 14:41:56.239893'
+    - '2019-11-12 14:41:56.239893'
+  - - 14
+    - Web Design and Development
+    - '2019-11-12 14:42:22.915420'
+    - '2019-11-12 14:42:22.915420'
+  - - 15
+    - Civil Engineering
+    - '2019-11-12 14:42:54.334554'
+    - '2019-11-12 14:42:54.334554'
+  - - 16
+    - Mechanical Engineering
+    - '2019-11-12 14:43:10.082160'
+    - '2019-11-12 14:43:10.082160'
+  - - 17
+    - Software Engineering
+    - '2019-11-12 14:43:26.332413'
+    - '2019-11-12 14:43:26.332413'
+  - - 18
+    - Chemical Engineering
+    - '2019-11-12 14:43:39.117922'
+    - '2019-11-12 14:43:39.117922'
+  - - 19
+    - Digital Media
+    - '2019-11-12 14:43:54.978690'
+    - '2019-11-12 14:43:54.978690'
+  - - 20
+    - Literature
+    - '2019-11-12 14:44:03.171737'
+    - '2019-11-12 14:44:03.171737'
+  - - 21
+    - Theatre Arts
+    - '2019-11-12 14:44:12.390209'
+    - '2019-11-12 14:44:12.390209'
+  - - 22
+    - Music
+    - '2019-11-12 14:44:24.250186'
+    - '2019-11-12 14:44:24.250186'
+  - - 23
+    - Statistics
+    - '2019-11-12 14:44:40.681267'
+    - '2019-11-12 14:44:40.681267'
+  - - 24
+    - Economics
+    - '2019-11-12 14:44:49.786836'
+    - '2019-11-12 14:44:49.786836'
+  - - 25
+    - Law
+    - '2019-11-12 14:45:03.903734'
+    - '2019-11-12 14:45:03.903734'
+  - - 26
+    - Culinary Arts
+    - '2019-11-12 14:45:14.011338'
+    - '2019-11-12 14:45:14.011338'
+  - - 27
+    - Nursing
+    - '2019-11-12 14:45:27.571544'
+    - '2019-11-12 14:45:27.571544'
+  - - 28
+    - Entrepreneurship
+    - '2019-11-12 14:46:04.178293'
+    - '2019-11-12 14:46:04.178293'
+  - - 29
+    - Political Science
+    - '2019-11-12 14:46:28.480267'
+    - '2019-11-12 14:46:28.480267'
+  - - 30
+    - Econometrics
+    - '2019-11-12 14:46:45.983205'
+    - '2019-11-12 14:46:45.983205'
+  - - 31
+    - Psychology
+    - '2019-11-12 14:46:58.120328'
+    - '2019-11-12 14:46:58.120328'
+  - - 32
+    - Sociology
+    - '2019-11-12 14:47:07.976608'
+    - '2019-11-12 14:47:07.976608'
+
+---
+tutors:
+  columns:
+  - id
+  - headline
+  - description
+  - years_teaching
+  - teaching_style
+  - work_experience
+  - education
+  - subjects
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 65
+    - A dedicated and professional tutor
+    - Looking to impact the lives of students worldwide
+    - 4
+    - Fast
+    - |
+      ---
+      - company: Evolve Branding
+        location: Vancouver
+        title: Principal Frontend Engineer
+        from: 2015-02-12
+        to: 2017-05-05
+    - |
+      ---
+      - school: National College of Ireland
+        degree: M.Sc Computer Programming
+        graduated: 2014-08-12
+    - |
+      ---
+      - Computer Science
+      - Mathematics
+      - Computer Programming
+    - 5
+    - '2019-11-12 13:21:43.226833'
+    - '2019-11-12 13:21:43.503871'
+  - - 66
+    - A marketing genius
+    - With over 10 years in Marketing, i come with a mountain of knowledge and i am
+      dedicated to helping students excel in Marketing.
+    - 4
+    - Average
+    - |
+      ---
+      - company: KPMG
+        location: Dublin
+        title: Financial Analyst
+        from: 2015-01-03
+        to: 2017-06-05
+    - |
+      ---
+      - school: Maynooth Institute of Technology
+        degree: M.Sc International Business
+        graduated: 2014-08-12
+    - |
+      ---
+      - Marketing
+      - International Business
+      - Human Resources and Management
+    - 2
+    - '2019-11-12 14:36:06.969796'
+    - '2019-11-12 14:36:07.496383'
+  - - 67
+    - A resourceful Entepreneur
+    - As a successful entrepreneur who has succeded in starting and running multiple
+      business, i bring a lot of experience to the table.
+    - 3
+    - Slow
+    - |
+      ---
+      - company: Morgan Stanley
+        location: New York
+        title: Financial Analyst
+        from: 2015-04-02
+        to: 2017-03-03
+    - |
+      ---
+      - school: Harvard School of Business
+        degree: BA Entrepreneurship
+        graduated: 2014-03-12
+    - |
+      ---
+      - Entrepreneurship
+      - Econometrics
+      - International Business
+    - 11
+    - '2019-11-12 14:55:06.641203'
+    - '2019-11-12 14:55:07.313081'
+  - - 68
+    - Experienced English and Literature instructor
+    - Teaching is my passion and i am looking to help new students get ahead in their
+      studies
+    - 4
+    - Slow
+    - |
+      ---
+      - company: National University of Ireland
+        location: Galway
+        title: English Instructor
+        from: 2015-03-05
+        to: 2017-06-06
+    - |
+      ---
+      - school: National College of Ireland
+        degree: BA English Language
+        graduated: 2014-08-12
+    - |
+      ---
+      - Literature
+      - Theatre Arts
+      - Digital Media
+    - 13
+    - '2019-11-12 15:21:10.376899'
+    - '2019-11-12 15:21:10.968374'
+  - - 69
+    - 'Marketing 101: Don''t trust what the profile says'
+    - 'Business professional with over 15 years in direct to consumer marketing. I
+      know (most of) all the tricks in the game. Let me be your mentor and guide you
+      through the maze that is Marketing. '
+    - 8
+    - Average
+    - |
+      ---
+      - company: Deloitte
+        location: New York
+        title: Chief Marketing Officer
+        from: 2015-03-05
+        to: 2016-04-06
+    - |
+      ---
+      - school: Harvard School of Business
+        degree: MBA
+        graduated: 2014-08-03
+    - |
+      ---
+      - Marketing
+      - International Business
+      - Human Resources and Management
+    - 15
+    - '2019-11-12 20:21:33.356014'
+    - '2019-11-12 20:21:33.867602'
+  - - 70
+    - A versatile Information Technology professional
+    - IT professional with wide knowledge in all areas technology. I can tutor you
+      in developing technologies like Artificial Intelligence, Machine and deep learning,
+      and even older concepts like Assembly Language.
+    - 6
+    - Average
+    - |
+      ---
+      - company: Facebook Inc.
+        location: Palo Alto
+        title: Technology Officer
+        from: 2015-06-15
+        to: 2017-12-17
+    - |
+      ---
+      - school: MIT
+        degree: B.Sc Computer Science
+        graduated: 2014-08-11
+    - |
+      ---
+      - Information Technology
+      - Computer Science
+      - Cloud Computing
+    - 17
+    - '2019-11-12 20:28:47.976719'
+    - '2019-11-12 20:28:48.423700'
+  - - 71
+    - A Music Instructor
+    - Let me help you get to the next level in your Music. Book me for a session and
+      you won't regret it
+    - 3
+    - Slow
+    - |
+      ---
+      - company: Eastend Records
+        location: Lagos
+        title: Self Employed
+        from: 2016-02-12
+        to: 2018-04-03
+    - |
+      ---
+      - school: Berkeley College of Arts
+        degree: Diploma, Music
+        graduated: 2015-04-12
+    - |
+      ---
+      - Music
+      - Marketing
+      - Digital Media
+    - 19
+    - '2019-11-12 20:38:26.406058'
+    - '2019-11-12 20:38:26.931537'
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - firstname
+  - lastname
+  - role
+  - gender
+  - has_profile
+  - location
+  records: 
+  - - 2
+    - johndoe@gmail.com
+    - "$2a$11$roQGMySdSFjGWpGvfNc40.kc3ChO0PXIUpKLAKJP.VaS9q66zlQK6"
+    - 
+    - 
+    - 
+    - John
+    - Doe
+    - Tutor
+    - Female
+    - true
+    - 
+  - - 3
+    - timbrewer@gmail.com
+    - "$2a$11$ULFuPCUwJEiOu/yiBGvxm.DqLmC21zmn6CV6sVpAGKtr1MHFoqL/y"
+    - 
+    - 
+    - 
+    - Tim
+    - Brewer
+    - Student
+    - Male
+    - true
+    - 
+  - - 4
+    - joerizzi@gmail.com
+    - "$2a$11$KdBJr7xhvAz/xKjbDGRgquVUbGnRnZqwj27.cAAssZ65BNjXkQ8nS"
+    - 
+    - 
+    - 
+    - Joe
+    - Rizzi
+    - Student
+    - Female
+    - false
+    - 
+  - - 5
+    - dijon@gmail.com
+    - "$2a$11$7tcHwP9cTtosC4bJv4r/o.UPKD10IgS/jGKCpg8mtNHfzY6VC.rHq"
+    - 
+    - 
+    - 
+    - Dijon
+    - Mueller
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 6
+    - john@gmail.com
+    - "$2a$11$Rq.QqSRk9DpVMbHVQ5WrJOQzK6R3g8B55drSJX1SmLRliAa3AvPu."
+    - 
+    - 
+    - 
+    - John
+    - Oxford
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 7
+    - ramimalek@gmail.com
+    - "$2a$11$7TPcKwdkcdzJ6C.QV2h3XuUCtK2OQIN5isttp3cMa0f4fehPbmOS6"
+    - 
+    - 
+    - 
+    - Rami
+    - Malek
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 8
+    - lukejames@gmail.com
+    - "$2a$11$kXx5/gl4Tc1qU7Z2WuwTDOEKSr2b0aUN8y5MzLoe3jWNwA.Z9ybKW"
+    - 
+    - 
+    - 
+    - Luke
+    - James
+    - Student
+    - Male
+    - false
+    - 
+  - - 9
+    - fadeadesanya@gmail.com
+    - "$2a$11$eW4f6dp7h3BBznYb8GU/n.rWyg8jmUSWpVQKmSz05T7TK3f53j.3e"
+    - 
+    - 
+    - 
+    - Fade
+    - Adesanya
+    - Student
+    - Female
+    - true
+    - 
+  - - 10
+    - waleadeleke@gmail.com
+    - "$2a$11$u/KUqOavEzpgQtWvRteCeeSZd0iCt5IfutwJmuhohU3MyURwhQHhy"
+    - 
+    - 
+    - 
+    - Wale
+    - Adeleke
+    - Student
+    - Male
+    - true
+    - 
+  - - 11
+    - joshmartin@gmail.com
+    - "$2a$11$FBogADGy.a6mI0X/q5NpkuW8lb2SWS5oqPoYvB9ydaBwqEw5F0vdq"
+    - 
+    - 
+    - 
+    - Josh
+    - Martin
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 12
+    - victorcruz@gmail.com
+    - "$2a$11$k3jYkEGFfHit.FjQA6El5OXRIebQYMjDLzKInFl80VzCFz9HDdVNS"
+    - 
+    - 
+    - 
+    - Victor
+    - Cruz
+    - Student
+    - Male
+    - true
+    - 
+  - - 13
+    - sineadconell@gmail.com
+    - "$2a$11$ZL6CgOHBQLdMZILUUYDXte7x0lrF2VbrGG/NsRKuBIEtjgQXMCxua"
+    - 
+    - 
+    - 
+    - Sinead
+    - Connell
+    - Tutor
+    - Female
+    - true
+    - 
+  - - 14
+    - felipegonzalez@gmail.com
+    - "$2a$11$CmXV0TSUkSSD8HHu7qll/esHYrR7yAmw99iMR3wsqCvUUfCCYuY1C"
+    - 
+    - 
+    - 
+    - Felipe
+    - Gonzalez
+    - Student
+    - Male
+    - true
+    - 
+  - - 15
+    - sloangarcia@gmail.com
+    - "$2a$11$dsOTOFQUDVqL/ghSIdWgreQrB5bC9/ATc.Y1967j/d8ubECBpNZvK"
+    - 
+    - 
+    - 
+    - Sloan
+    - Garcia
+    - Tutor
+    - Female
+    - true
+    - 
+  - - 16
+    - jackieappiah@gmail.com
+    - "$2a$11$eyd4kBWmHPVqcdmHujZ0cOXJ5ibiuKoexrmGVtUMc2S8rHv6SF6pm"
+    - 
+    - 
+    - 
+    - Jackie
+    - Appiah
+    - Student
+    - Female
+    - true
+    - 
+  - - 17
+    - felixgomez@gmail.com
+    - "$2a$11$xbhe4t/s51QnOBLAQcagVeYs4J.VPb2FSLyGGw7UQtdIF4zh6ebaC"
+    - 
+    - 
+    - 
+    - Felix
+    - Gomez
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 18
+    - lolitaadams@gmail.com
+    - "$2a$11$a7qB/VB2GzIG2KSTG3cFZec.e1FpJPg88O5MT37r2XBoRh2FYaRbG"
+    - 
+    - 
+    - 
+    - Lolita
+    - Adams
+    - Student
+    - Female
+    - true
+    - 
+  - - 19
+    - kwamekeys@gmail.com
+    - "$2a$11$3aNLhYF/dfDsnxePUSqa3eO/XIIiKbRuUsK/YMZb7ORgtfiGcVWfq"
+    - 
+    - 
+    - 
+    - Kwame
+    - Keys
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 20
+    - mannyricci@gmail.com
+    - "$2a$11$ZlYtLVAB.JHyHrPM/tgZQevSnCFCu6.Pmq3gyLdU0eh94x.MeYdfC"
+    - 
+    - 
+    - 
+    - 'Manny '
+    - Ricci
+    - Student
+    - Male
+    - true
+    - 
