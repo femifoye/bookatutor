@@ -13,4 +13,5 @@ class Tutor < ApplicationRecord
 
   serialize :education, Array
   serialize :subjects, Array
+  serialize :dates_booked, Array
 end

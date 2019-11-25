@@ -46,5 +46,13 @@
 
 <%= link_to "Home", root_path %>
 <% if current_user.role == "Student" %>
-<%= link_to "Book Tutor", user_book_tutor_path, method: :post %>
+<a class="btn btn-primary toggle-booking-form">Book Tutor</a>
 <% end %>
+
+<section id="book-tutor-form" class="hide">
+  <h1>New Booking</h1>
+
+  <%= render 'bookings/booking-form' %>
+
+  <%= link_to 'Back', user_bookings_path(@user) %>
+</section>

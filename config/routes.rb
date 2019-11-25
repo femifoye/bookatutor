@@ -51,7 +51,7 @@ Rails.application.routes.draw do
       get 'lessons/:id/details', to: 'lessons#details', :as => :lesson_detail
     end
 
-    post '/book', to: 'bookings#book', :as => :book_tutor
+    post 'bookings/book', to: 'bookings#book', :as => :book_tutor
 
   end
 

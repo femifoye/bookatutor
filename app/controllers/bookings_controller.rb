@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    debugger
     @booking = @user.bookings.build(booking_params)
     respond_to do |format|
       if @booking.save
@@ -43,18 +42,48 @@ class BookingsController < ApplicationController
   end
 
   def book
+    #get information on booking
+    #get date value from form
+    date = DateTime.civil(
+      params[:booking]["date(1i)"].to_i,
+      params[:booking]["date(2i)"].to_i,
+      params[:booking]["date(3i)"].to_i,
+      params[:booking]["date(4i)"].to_i,
+      params[:booking]["date(5i)"].to_i,
+    )
+    #get location value from form
+    location = params[:booking]["location"]
+    #set userID of user who initiated booking
     user_id = current_user.id
+    #set userID of user booked
     user_booked_id = @user_booked.id
+    #save all database parameters in a hash
     params_booking = {
-      "date" => DateTime.now,
-      "location" => "Dublin",
+      "date" => date,
+      "location" => location,
       "user_booked" => user_booked_id
     }
+    #save data to database
     @booking = @user.bookings.build(params_booking)
     respond_to do |format|
       if @booking.save
-        self.init_notification
-        @bookingNotification.send_notification
+        #get the Tutor profile of the tutor booked
+        tutor_booked = Tutor.where(user_id: [user_booked_id])
+        #update the date booked to include new date and user who initiated booking
+        dates_booked_info = {
+          "date" => date,
+          "booked_by" => current_user.id
+        }
+        
+        #add new data to database and update
+        tutor_booked[0].dates_booked.push(dates_booked_info)
+        debugger
+        if tutor_booked[0].save
+          self.init_notification
+          @bookingNotification.send_notification
+        else
+          render :action => 'new', :notice => "Error! Unable to save Tutor information"
+        end
         format.html { redirect_to user_booking_url(@user, @booking), notice: 'Your Booking was successful' }
       else
         render :action => 'new'
