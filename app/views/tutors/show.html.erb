@@ -45,3 +45,6 @@
 <% end %>
 
 <%= link_to "Home", root_path %>
+<% if current_user.role == "Student" %>
+<%= link_to "Book Tutor", user_book_tutor_path, method: :post %>
+<% end %>

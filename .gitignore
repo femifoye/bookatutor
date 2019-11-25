@@ -20,4 +20,6 @@
 /node_modules
 /yarn-error.log
 
+/BAT_Notifications-0.0.0
+
 .byebug_history

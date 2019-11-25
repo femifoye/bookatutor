@@ -50,7 +50,12 @@ Rails.application.routes.draw do
       post 'lessons/:id/end', to: 'lessons#endsession', :as => :lesson_end
       get 'lessons/:id/details', to: 'lessons#details', :as => :lesson_detail
     end
+
+    post '/book', to: 'bookings#book', :as => :book_tutor
+
   end
+
+  
 
 
   root 'pages#home'

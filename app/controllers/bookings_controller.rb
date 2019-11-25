@@ -1,6 +1,10 @@
+require 'BAT_Notifications'
+
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_user
+  before_action :set_user_booked
 
   # GET /bookings
   # GET /bookings.json
@@ -27,6 +31,7 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
+    debugger
     @booking = @user.bookings.build(booking_params)
     respond_to do |format|
       if @booking.save
@@ -35,6 +40,27 @@ class BookingsController < ApplicationController
         render :action => 'new'
       end
     end
+  end
+
+  def book
+    user_id = current_user.id
+    user_booked_id = @user_booked.id
+    params_booking = {
+      "date" => DateTime.now,
+      "location" => "Dublin",
+      "user_booked" => user_booked_id
+    }
+    @booking = @user.bookings.build(params_booking)
+    respond_to do |format|
+      if @booking.save
+        self.init_notification
+        @bookingNotification.send_notification
+        format.html { redirect_to user_booking_url(@user, @booking), notice: 'Your Booking was successful' }
+      else
+        render :action => 'new'
+      end
+    end
+
   end
 
   # PATCH/PUT /bookings/1
@@ -60,6 +86,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def init_notification
+    action = "Booking"
+    user_booking = @user
+    user_booked  = @user_booked
+    content = @booking
+    @bookingNotification = BookingNotification.new(action, user_booking, user_booked, content)
+    return @bookingNotification
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
@@ -67,7 +102,11 @@ class BookingsController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = current_user
+    end
+
+    def set_user_booked
+      @user_booked = User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
