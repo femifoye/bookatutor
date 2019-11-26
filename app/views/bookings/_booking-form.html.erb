@@ -1,0 +1,24 @@
+<%= form_for :booking, url: "bookings/book" do |form| %>
+
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, id: :booking_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hours_booked %>
+    <%= form.select( :hours_booked, (1..4).to_a.map{|c| c })%>
+  </div>
+
+  
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :booking_location %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

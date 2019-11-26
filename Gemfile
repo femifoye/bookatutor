@@ -53,6 +53,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+<<<<<<< HEAD
+=======
+gem 'Matcher', '~> 1.0.0'
+
+gem 'BAT_Notifications', '~> 0.0.2'
+
+gem 'pony', '~> 1.13', '>= 1.13.1'
+
+gem 'async'
+>>>>>>> c1fa7c3f6f933923348ea0c57518b5422987ce5b
 
 gem 'Matcher'
 

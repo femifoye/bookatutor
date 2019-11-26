@@ -1,6 +1,10 @@
+require 'BAT_Notifications'
+
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_user
+  before_action :set_user_booked
 
   # GET /bookings
   # GET /bookings.json
@@ -37,6 +41,61 @@ class BookingsController < ApplicationController
     end
   end
 
+  def book
+    #get information on booking
+    #get date value from form
+    date = DateTime.civil(
+      params[:booking]["date(1i)"].to_i,
+      params[:booking]["date(2i)"].to_i,
+      params[:booking]["date(3i)"].to_i,
+      params[:booking]["date(4i)"].to_i,
+      params[:booking]["date(5i)"].to_i,
+    )
+    #get location value from form
+    location = params[:booking]["location"]
+    #get hours booked
+    hours_booked = params[:booking]["hours_booked"]
+    #set userID of user who initiated booking
+    user_id = current_user.id
+    #set userID of user booked
+    user_booked_id = @user_booked.id
+    #save all database parameters in a hash
+    params_booking = {
+      "date" => date,
+      "location" => location,
+      "hours_booked" => hours_booked,
+      "user_booked" => user_booked_id
+    }
+    #save data to database
+    @booking = @user.bookings.build(params_booking)
+    respond_to do |format|
+      if @booking.save
+        #get the Tutor profile of the tutor booked
+        tutor_booked = Tutor.where(user_id: [user_booked_id])
+        debugger
+        #update the date booked to include new date and user who initiated booking
+        dates_booked_info = {
+          "date" => date,
+          "booked_by" => current_user.id
+        }
+
+        #add new data to database and update
+        tutor_booked[0].dates_booked.push(dates_booked_info)
+        debugger
+        if tutor_booked[0].save
+          self.init_notification
+          @bookingNotification.send_notification
+        else
+          render :action => 'new', :notice => "Error! Unable to save Tutor information"
+        end
+        format.html { redirect_to user_booking_url(@user, @booking), notice: 'Your Booking was successful' }
+      else
+        render :action => 'new'
+      end
+    end
+
+  end
+
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
@@ -60,6 +119,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def init_notification
+    action = "Booking"
+    user_booking = @user
+    user_booked  = @user_booked
+    content = @booking
+    @bookingNotification = BookingNotification.new(action, user_booking, user_booked, content)
+    return @bookingNotification
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
@@ -67,7 +135,11 @@ class BookingsController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = current_user
+    end
+
+    def set_user_booked
+      @user_booked = User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

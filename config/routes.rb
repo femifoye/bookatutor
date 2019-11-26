@@ -50,13 +50,20 @@ Rails.application.routes.draw do
       post 'lessons/:id/end', to: 'lessons#endsession', :as => :lesson_end
       get 'lessons/:id/details', to: 'lessons#details', :as => :lesson_detail
     end
+
+    post 'bookings/book', to: 'bookings#book', :as => :book_tutor
+
   end
+
+  
 
 
   root 'pages#home'
 
   get '/register', to: 'users#new'
   get '/tutors', to: 'pages#tutors', :as => :all_tutors
+
+  get '/find-tutor/:id', to: 'axios#get_tutor_from_id'
 end
 
 
