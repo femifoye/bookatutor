@@ -62,6 +62,8 @@ Rails.application.routes.draw do
 
   get '/register', to: 'users#new'
   get '/tutors', to: 'pages#tutors', :as => :all_tutors
+
+  get '/find-tutor/:id', to: 'axios#get_tutor_from_id'
 end
 
 

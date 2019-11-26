@@ -53,6 +53,8 @@ class BookingsController < ApplicationController
     )
     #get location value from form
     location = params[:booking]["location"]
+    #get hours booked
+    hours_booked = params[:booking]["hours_booked"]
     #set userID of user who initiated booking
     user_id = current_user.id
     #set userID of user booked
@@ -61,6 +63,7 @@ class BookingsController < ApplicationController
     params_booking = {
       "date" => date,
       "location" => location,
+      "hours_booked" => hours_booked,
       "user_booked" => user_booked_id
     }
     #save data to database
@@ -69,12 +72,13 @@ class BookingsController < ApplicationController
       if @booking.save
         #get the Tutor profile of the tutor booked
         tutor_booked = Tutor.where(user_id: [user_booked_id])
+        debugger
         #update the date booked to include new date and user who initiated booking
         dates_booked_info = {
           "date" => date,
           "booked_by" => current_user.id
         }
-        
+
         #add new data to database and update
         tutor_booked[0].dates_booked.push(dates_booked_info)
         debugger
