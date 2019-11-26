@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     resources :bookings do
       resources :lessons
 
-      post 'lessons/:id/end', to: 'lessons#endsession', :as => :lesson_end
+      post 'lessons/:id/end', to: 'lessons#endlesson', :as => :lesson_end
       get 'lessons/:id/details', to: 'lessons#details', :as => :lesson_detail
     end
 
@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
 
   root 'pages#home'
+
+  get '/:user_id/dashboard', to: 'pages#dashboard'
 
   get '/register', to: 'users#new'
   get '/tutors', to: 'pages#tutors', :as => :all_tutors

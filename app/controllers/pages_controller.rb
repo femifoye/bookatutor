@@ -22,6 +22,10 @@ class PagesController < ApplicationController
 
   end
 
+  def dashboard
+    
+  end
+
   def tutors
     set_tutors
   end

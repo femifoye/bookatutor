@@ -27,6 +27,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
+    debugger
     @review = @user.reviews.build(review_params)
     respond_to do |format|
       if @review.save

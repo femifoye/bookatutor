@@ -1,3 +1,3 @@
-class Session < ApplicationRecord
-    has_one :booking
+class Lesson < ApplicationRecord
+    belongs_to :booking
 end
