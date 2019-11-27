@@ -53,6 +53,9 @@ Rails.application.routes.draw do
 
     post 'bookings/book', to: 'bookings#book', :as => :book_tutor
 
+    get '/dashboard', to: 'pages#dashboard'
+
+    # post '/create-review/', to: 'axios#create_review'
   end
 
   
@@ -60,12 +63,13 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  get '/:user_id/dashboard', to: 'pages#dashboard'
 
   get '/register', to: 'users#new'
   get '/tutors', to: 'pages#tutors', :as => :all_tutors
 
   get '/find-tutor/:id', to: 'axios#get_tutor_from_id'
+
+  
 end
 
 

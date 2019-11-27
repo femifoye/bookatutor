@@ -28,7 +28,12 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     debugger
-    @review = @user.reviews.build(review_params)
+    # params_review = {
+    #   "reviewee" => params[:reviewee],
+    #   "review_content" => params[:review_content],
+    #   "review_stars" => params[:review_stars]
+    # }
+    @review = @user.reviews.create(review_params)
     respond_to do |format|
       if @review.save
         format.html { redirect_to user_review_path(@user, @review), notice: "Review was successfully created"}

@@ -9,7 +9,7 @@
               <li class="menu-list"><%= link_to 'Home', root_path %></li>
               <li class="menu-list"><%= link_to 'Tutors', all_tutors_path %></li>
               <% if user_signed_in? %>
-              <li class="menu-list"><%= link_to 'Dashboard', "/#{current_user.id}/dashboard" %></li>
+              <li class="menu-list"><%= link_to 'Dashboard', "/users/#{current_user.id}/dashboard" %></li>
                 <li class="menu-list"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
                 <li class="menu-list"><%= link_to 'Your Profile', user_profile_url(current_user) %></li>
 

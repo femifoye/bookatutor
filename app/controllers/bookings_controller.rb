@@ -67,7 +67,7 @@ class BookingsController < ApplicationController
       "user_booked" => user_booked_id
     }
     #save data to database
-    @booking = @user.bookings.build(params_booking)
+    @booking = @user.bookings.create(params_booking)
     respond_to do |format|
       if @booking.save
         #get the Tutor profile of the tutor booked
