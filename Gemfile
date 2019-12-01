@@ -55,7 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'Matcher', '~> 1.0.0'
 
-gem 'BAT_Notifications', '~> 0.0.3'
+gem 'BAT_Notifications', '~> 0.0.4'
 
 gem 'pony', '~> 1.13', '>= 1.13.1'
 

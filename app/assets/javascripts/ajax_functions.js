@@ -4,36 +4,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let path = window.location.pathname;
     let pathOrigin = window.location.origin;
     let user_id = parseInt(path.split('/')[2]);
+    let booking_id = parseInt(path.split('/')[4]);
+    let reviewee
+    
+    if(booking_id){
+        axios.get(`/find-booking/${booking_id}`, {headers: {'Accept': 'application/json'}})
+        .then((d) => {
+            reviewee = parseInt(d.data.user_booked)
+            console.log(reviewee) 
+        })
+        .catch((e) => console.log(e))
+    }
 
     console.log(window.location)
+
+      
     
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        
         let reviewStars = document.getElementById('review_review_stars').value;
         let reviewDetails = document.getElementById('review_details').value;
-        // axios({
-        //     method: 'post',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     url: `/users/${user_id}/reviews`,
-        //     data: {
-        //         reviewee: user_id,
-        //         review_content: reviewDetails,
-        //         review_stars: reviewStars  
-        //     }
-        // })
-        // .then((response) => {
-        //     console.log(response)
-        // })
-        // .catch((e) => {
-        //     console.log(e)
-        // })
+        
 
         axios.post(
             `/users/${user_id}/reviews`, 
             {
-                reviewee: user_id,
+                reviewee : reviewee,
                 review_content: reviewDetails,
                 review_stars: reviewStars
             },

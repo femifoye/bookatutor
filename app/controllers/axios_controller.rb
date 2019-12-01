@@ -8,6 +8,14 @@ class AxiosController < ApplicationController
         end
     end
 
+    def get_booking_info
+        booking_id = params[:id]
+        @booking = Booking.find(booking_id)
+        respond_to do |format|
+            format.json {render json: @booking}
+        end
+    end
+
     # def create_review
     #     debugger
     #     # @review = @user.reviews.build(review_params)
