@@ -55,6 +55,7 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
+    brakeman (4.7.2)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.15.1)
@@ -112,6 +113,8 @@ GEM
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
+    rack-attack (6.2.1)
+      rack (>= 1.0, < 3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.7)
@@ -205,6 +208,7 @@ DEPENDENCIES
   Matcher (~> 1.0.0)
   async
   bootstrap (~> 4.0.0)
+  brakeman
   byebug
   capybara (>= 2.15)
   certified
@@ -214,6 +218,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   pony (~> 1.13, >= 1.13.1)
   puma (~> 3.7)
+  rack-attack
   rails (~> 5.1.7)
   sass-rails (~> 5.0)
   selenium-webdriver

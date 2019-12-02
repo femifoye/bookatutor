@@ -65,4 +65,8 @@ gem 'certified'
 
 gem 'async'
 
+gem 'rack-attack'
+
+gem 'brakeman'
+
 gem 'yaml_db'
