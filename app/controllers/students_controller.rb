@@ -30,6 +30,19 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     @student = @user.student
+    @subject_competency_array = params[:student][:subjects_of_interest]
+    #remove subjects in dB before update
+    @student[:subjects_of_interest].delete_if do |s|
+      s != nil
+    end
+    @student.save
+    @subject_competency_array.each do |s|
+      @student.subjects_of_interest.push({
+        "subject" => s[:subject],
+        "competency" => s[:competency]
+      })
+    end
+    @student.save
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to user_profile_url, notice: 'Profile was successfully updated.' }

@@ -1,5 +1,14 @@
-<section class="container">
-    <h1><%= link_to  "Your Bookings", user_bookings_path %></h1>
-    <h1><%= link_to  "Your Reviews", user_reviews_path %></h1>
-    <h1><%= link_to  "Your Conversations", user_messages_path %><% if @user_unread_message.length > 0 %><span class="message-sticker"> <%= @user_unread_message.length %> </span><% end %></h1>
+<section class="dashboard">
+    <div class="dashboard-header">
+        <h1 class="text-center">Welcome, <%= current_user.firstname %></h1>
+    </div>
+
+    <div class="container text-center">
+        <% if (current_user.role == "Student") %>
+            <h2><%= link_to  "Your Bookings", user_bookings_path %></h2>
+            <h2><%= link_to  "Your Reviews", user_reviews_path %></h2>
+        <% end %>
+        <h2><%= link_to  "Your Conversations", user_messages_path %><% if @user_unread_message.length > 0 %><span class="message-sticker"> <%= @user_unread_message.length %> </span><% end %></h2>
+    </div>
+
 </section>

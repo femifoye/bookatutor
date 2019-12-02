@@ -39,6 +39,7 @@ class ProfilesController < ApplicationController
 
     def edit
         @profile = send @prop[:show]
+        @subjects = Subject.all.order('subject_name ASC')
         render "#{@prop[:render]}/edit"
     end
 

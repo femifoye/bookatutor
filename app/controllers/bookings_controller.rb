@@ -1,6 +1,12 @@
 require 'BAT_Notifications'
 require 'geocoder'
 require 'certified'
+require 'time'
+
+Geocoder.configure(  
+ # geocoding options
+ :timeout      => 10           # geocoding service timeout (secs)
+)
 
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
@@ -10,6 +16,9 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
+    @geocoder = Geocoder
+    @time = DateTime
+    @users = User.all
     @bookings = @user.bookings.all
   end
 
