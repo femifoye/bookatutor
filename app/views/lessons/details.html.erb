@@ -1,5 +1,32 @@
-<h3>You have just completed your lesson</h2>
+<section class="container">
+    <h3>You have just completed your lesson</h2>
 
-<p>please review your instructor</p>
+    <p>please review your instructor</p>
 
-<h3>Review goes here</h3>
+    <h3>Review goes here</h3>
+
+    <%= form_for :review, :html => {:id => "review_form"} do |form| %>
+
+    <div class="field">
+        <%= form.label :stars %>
+        <%= form.select( :review_stars, (1..5).to_a.map{|c| c },  :class => "form-control")%>
+    </div>
+
+    
+
+    <div class="field">
+        <%= form.label :review_details %>
+        <%= form.text_area :review_details, id: :review_details, :class => "form-control"  %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit "Review Tutor" %>
+    </div>
+    <% end %>
+
+
+
+
+</section>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191125135939) do
+ActiveRecord::Schema.define(version: 20191202064755) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "date"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20191125135939) do
 
   create_table "messages", force: :cascade do |t|
     t.string "message_to"
-    t.string "message_from"
     t.string "status"
     t.integer "user_id"
     t.datetime "created_at", null: false

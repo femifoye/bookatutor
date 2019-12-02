@@ -1,3 +1,5 @@
+require 'BAT_Notifications'
+
 class MessagesController < ApplicationController
   #before_action :set_message, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :show, :new, :edit, :create, :update, :destroy]
@@ -17,6 +19,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = @user.messages.build
+    @message_to = User.find(params[:user_id])
   end
 
   # GET /messages/1/edit
@@ -28,10 +31,16 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = @user.messages.build(message_params)
-    if @message.save
-      redirect_to user_message_url(@user, @message)
-    else
-      render :action => new
+    respond_to do |format|
+      if @message.save
+        #init notification
+        self.init_notification
+        #send notification to message receiver
+        @notification.send_notification_to_receiver
+        format.html { redirect_to user_dashboard_url(@user), notice: 'Your message has been sent.' }
+      else
+        render :action => 'new'
+      end
     end
   end
 
@@ -57,6 +66,15 @@ class MessagesController < ApplicationController
     end
   end
 
+  def init_notification
+    #configure notification to send message to message_receiver
+    message_sender = current_user
+    message_receiver = User.find(params[:user_id])
+    content = @message
+    @notification = BAT_Notification.new(message_sender, message_receiver, content)
+    @notification = InboxNotification.new(@notification)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
@@ -64,11 +82,11 @@ class MessagesController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:message_to, :message_from, :status, :user_id)
+      params.require(:message).permit(:message_to, :message_from, :message_content, :status, :user_id)
     end
 end

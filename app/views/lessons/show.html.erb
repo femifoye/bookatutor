@@ -14,10 +14,6 @@
   <%= @lesson.members %>
 </p>
 
-<p>
-  <strong>References:</strong>
-  <%= @lesson.references %>
-</p>
 
 <%= link_to 'Edit', edit_user_booking_lesson_path(@user, @booking, @lesson) %> |
-<%= link_to 'Back', user_booking_lesson(@user, @booking, @lesson) %>
+<%= link_to 'Back', user_booking_lesson_path(@user, @booking, @lesson) %>

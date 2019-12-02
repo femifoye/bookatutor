@@ -1,58 +1,79 @@
 
 <% if @profile == nil %>
-  <h2>This user is a <%= @user.role %> and has not created a profile</h2>
+  <h2>This user has not created a profile</h2>
 <% else %>
-<p>
-  <strong>Headline:</strong>
-  <%= @profile.headline %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @profile.description %>
-</p>
+<section class="container tutor-profile text-center p-20">
+  <div class="tutor-profile-field">
+    <h3>Headline:</h3>
+    <p><%= @profile.headline %></p>
+  </div>
+  <div class="tutor-profile-field">
+    <h3>Description:</h3>
+    <p><%= @profile.description %></p>
+  </div>
+  <div class="tutor-profile-field">
+    <h3>Years Teaching:</h3>
+    <p><%= @profile.years_teaching %></p>
+  </div>
+  <div class="tutor-profile-field">
+    <h3>Teaching Style:</h3>
+    <p><%= @profile.teaching_style %></p>
+  </div>
+  <div class="tutor-profile-field">
+    <h3>Relevant Work Experience:</h3>
+    <% @profile.work_experience.each do |p| %>
+      <p>Company:
+      <span><%= p["company"] %></span></p>
+      <p>Location:
+      <span><%= p["location"] %></span></p>
+      <p>Title:
+      <span><%= p["title"] %></span></p>
+      <p>From:
+      <span><%= p["from"] %></span></p>
+      <p>To:
+      <span><%= p["to"] %></span></p>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Years teaching:</strong>
-  <%= @profile.years_teaching %>
-</p>
+  <div class="tutor-profile-field">
+    <h3>Relevant Education:</h3>
+    <% @profile.education.each do |p| %>
+      <p>School:
+      <span><%= p["school"] %></span></p>
+      <p>Degree/Certification:
+      <span><%= p["degree"] %></span></p>
+      <p>Graduated:
+      <span><%= p["graduated"] %></span></p>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Teaching style:</strong>
-  <%= @profile.teaching_style %>
-</p>
+  <div class="tutor-profile-field">
+    <h3>Subjects:</h3>
+    <% @profile.subjects.each do |subject| %>
+      <p><%= subject %></p>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Work experience:</strong>
-  <%= @profile.work_experience %>
-</p>
-
-<p>
-  <strong>Education:</strong>
-  <%= @profile.education %>
-</p>
-
-<p>
-  <strong>Subjects:</strong>
-  <%= @profile.subjects %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<% end %>
-
-<%= link_to "Home", root_path %>
+  <%= link_to "Home", root_path %>
 <% if current_user.role == "Student" %>
 <a class="btn btn-primary toggle-booking-form">Book Tutor</a>
+<%= link_to "Private Message", new_user_message_path, :class => "btn btn-primary" %>
 <% end %>
 
-<section id="book-tutor-form" class="hide">
+<section id="book-tutor-form" class="hide p-20">
   <h1>New Booking</h1>
 
   <%= render 'bookings/booking-form' %>
 
   <%= link_to 'Back', user_bookings_path(@user) %>
 </section>
+  
+</section>
+
+
+
+
+<% end %>
+
+

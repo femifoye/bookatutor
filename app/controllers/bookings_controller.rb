@@ -1,5 +1,12 @@
 require 'BAT_Notifications'
+require 'geocoder'
+require 'certified'
+require 'time'
 
+Geocoder.configure(  
+ # geocoding options
+ :timeout      => 10           # geocoding service timeout (secs)
+)
 
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
@@ -9,6 +16,9 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
+    @geocoder = Geocoder
+    @time = DateTime
+    @users = User.all
     @bookings = @user.bookings.all
   end
 
@@ -51,8 +61,15 @@ class BookingsController < ApplicationController
       params[:booking]["date(4i)"].to_i,
       params[:booking]["date(5i)"].to_i,
     )
-    #get location value from form
-    location = params[:booking]["location"]
+    #get location values from form // street address, city and postal
+    street_address = params[:booking][:booking_location][0]["street_address"]
+    city = params[:booking][:booking_location][0]["city"]
+    postal_code = params[:booking][:booking_location][0]["postal_code"]
+    #extract long and lat values from address using Geocoder gem
+    full_address = street_address+", "+city
+    location = Geocoder.search(full_address)
+    latitude = location[0].data["lat"]
+    longitude = location[0].data["lon"]
     #get hours booked
     hours_booked = params[:booking]["hours_booked"]
     #set userID of user who initiated booking
@@ -62,17 +79,16 @@ class BookingsController < ApplicationController
     #save all database parameters in a hash
     params_booking = {
       "date" => date,
-      "location" => location,
+      "location" => {"longitude" => longitude, "latitude" => latitude},
       "hours_booked" => hours_booked,
       "user_booked" => user_booked_id
     }
     #save data to database
-    @booking = @user.bookings.build(params_booking)
+    @booking = @user.bookings.create(params_booking)
     respond_to do |format|
       if @booking.save
         #get the Tutor profile of the tutor booked
         tutor_booked = Tutor.where(user_id: [user_booked_id])
-        debugger
         #update the date booked to include new date and user who initiated booking
         dates_booked_info = {
           "date" => date,
@@ -81,10 +97,15 @@ class BookingsController < ApplicationController
 
         #add new data to database and update
         tutor_booked[0].dates_booked.push(dates_booked_info)
-        debugger
         if tutor_booked[0].save
+          #initiate notification decorator
           self.init_notification
-          @bookingNotification.send_notification
+          #send notification to tutor booked
+          @notification.send_notification_to_receiver
+          #decorate notification to send notification to user 
+          @notification = UserBookingNotification.new(@notification)
+          #send notification to user
+          @notification.send_notification_to_sender
         else
           render :action => 'new', :notice => "Error! Unable to save Tutor information"
         end
@@ -120,12 +141,12 @@ class BookingsController < ApplicationController
   end
 
   def init_notification
-    action = "Booking"
     user_booking = @user
     user_booked  = @user_booked
     content = @booking
-    @bookingNotification = BookingNotification.new(action, user_booking, user_booked, content)
-    return @bookingNotification
+    @notification = BAT_Notification.new(user_booking, user_booked, content)
+    @notification = BookingNotification.new(@notification)
+    return @notification
   end
 
   private
