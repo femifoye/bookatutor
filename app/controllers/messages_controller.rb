@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = @user.messages.build
+    @message_to = User.find(params[:user_id])
   end
 
   # GET /messages/1/edit
@@ -28,10 +29,12 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = @user.messages.build(message_params)
-    if @message.save
-      redirect_to user_message_url(@user, @message)
-    else
-      render :action => new
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to user_dashboard_url(@user), notice: 'Your message has been sent.' }
+      else
+        render :action => 'new'
+      end
     end
   end
 
@@ -64,11 +67,11 @@ class MessagesController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:message_to, :message_from, :status, :user_id)
+      params.require(:message).permit(:message_to, :message_from, :message_content, :status, :user_id)
     end
 end

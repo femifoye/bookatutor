@@ -23,6 +23,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @user_messages = Message.where(message_to: current_user.id)
+    @user_unread_message = @user_messages.select { |m| m.status == "unread"}
+
     
   end
 

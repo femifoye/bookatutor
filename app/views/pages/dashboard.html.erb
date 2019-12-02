@@ -1,4 +1,5 @@
 <section class="container">
-    <h1><%= link_to  "Your Bookings", user_bookings_path %>
-    <h1><%= link_to  "Your Reviews", user_reviews_path %>
+    <h1><%= link_to  "Your Bookings", user_bookings_path %></h1>
+    <h1><%= link_to  "Your Reviews", user_reviews_path %></h1>
+    <h1><%= link_to  "Your Conversations", user_messages_path %><% if @user_unread_message.length > 0 %><span class="message-sticker"> <%= @user_unread_message.length %> </span><% end %></h1>
 </section>
