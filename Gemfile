@@ -53,11 +53,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'Matcher', '~> 1.0.0'
+#gem 'Matcher', '~> 1.0.0'
 
-gem 'BAT_Notifications', '~> 0.0.4'
+#gem 'BAT_Notifications', '~> 0.0.4'
 
-gem 'pony', '~> 1.13', '>= 1.13.1'
+gem 'pony'
 
 gem 'geocoder'
 
@@ -71,4 +71,5 @@ gem 'brakeman'
 
 gem 'yaml_db'
 
-gem 'yaml_db'
+gem 'arachni', '~> 1.5', '>= 1.5.1'
+
