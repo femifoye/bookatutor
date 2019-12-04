@@ -84,9 +84,9 @@ class BookingsController < ApplicationController
       "user_booked" => user_booked_id
     }
     #save data to database
-    @booking = @user.bookings.create(params_booking)
+    
     respond_to do |format|
-      if @booking.save
+      if @booking = @user.bookings.create(params_booking)
         #get the Tutor profile of the tutor booked
         tutor_booked = Tutor.where(user_id: [user_booked_id])
         #update the date booked to include new date and user who initiated booking

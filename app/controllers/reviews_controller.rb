@@ -31,16 +31,9 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     #get parameters from the reviews form sent with ajax
-    @review = @user.reviews.create(review_params)
+    
     respond_to do |format|
-      if @review.save
-        #initiate notification
-        self.init_notification
-        #send notification to user being reviewed
-        @notification.send_notification_to_receiver
-        #decorate notification to send notification to user being reviewed
-        @notification = UserReviewNotification.new(@notification)
-        @notification.send_notification_to_sender
+      if @review = @user.reviews.create(review_params)
         format.html { redirect_to user_review_path(@user, @review), notice: "Review was successfully created"}
       else
         render :action => 'new'

@@ -16,10 +16,6 @@
         <span><%= Time.at(booking.date).httpdate %></span></p>
       </div>
       <div class="user-booking-field">
-        <p>Location:
-        <span><%= @geocoder.search("#{booking[:location]["latitude"]}, #{booking[:location]["longitude"]}")[0].data["address"]["address29"]%></span></p>
-      </div>
-      <div class="user-booking-field">
         <p>Tutor Booked:
         <span><%= @users.select{|u| booking.user_booked == u.id}[0].firstname %></span></p>
       </div>

@@ -33,10 +33,6 @@ class MessagesController < ApplicationController
     @message = @user.messages.build(message_params)
     respond_to do |format|
       if @message.save
-        #init notification
-        self.init_notification
-        #send notification to message receiver
-        @notification.send_notification_to_receiver
         format.html { redirect_to user_dashboard_url(@user), notice: 'Your message has been sent.' }
       else
         render :action => 'new'
@@ -64,15 +60,6 @@ class MessagesController < ApplicationController
       format.html { redirect_to user_messages_path(@user), notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def init_notification
-    #configure notification to send message to message_receiver
-    message_sender = current_user
-    message_receiver = User.find(params[:user_id])
-    content = @message
-    @notification = BAT_Notification.new(message_sender, message_receiver, content)
-    @notification = InboxNotification.new(@notification)
   end
 
   private
