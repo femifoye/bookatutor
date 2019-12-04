@@ -69,4 +69,6 @@ gem 'rack-attack'
 
 gem 'brakeman'
 
+gem 'rails-observers'
+
 gem 'yaml_db'

@@ -97,18 +97,8 @@ class BookingsController < ApplicationController
 
         #add new data to database and update
         tutor_booked[0].dates_booked.push(dates_booked_info)
-        if tutor_booked[0].save
-          #initiate notification decorator
-          self.init_notification
-          #send notification to tutor booked
-          @notification.send_notification_to_receiver
-          #decorate notification to send notification to user 
-          @notification = UserBookingNotification.new(@notification)
-          #send notification to user
-          @notification.send_notification_to_sender
-        else
-          render :action => 'new', :notice => "Error! Unable to save Tutor information"
-        end
+        tutor_booked[0].save
+       
         format.html { redirect_to user_booking_url(@user, @booking), notice: 'Your Booking was successful' }
       else
         render :action => 'new'
@@ -139,16 +129,7 @@ class BookingsController < ApplicationController
       format.html { redirect_to user_bookings_path(@user), notice: 'Booking was successfully cancelled.' }
     end
   end
-
-  def init_notification
-    user_booking = @user
-    user_booked  = @user_booked
-    content = @booking
-    @notification = BAT_Notification.new(user_booking, user_booked, content)
-    @notification = BookingNotification.new(@notification)
-    return @notification
-  end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
