@@ -1,0 +1,330 @@
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+html body {
+  background-color: #f0f0f0;
+}
+/* line 3, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+html body a:visited,
+html body a {
+  color: inherit;
+}
+
+/* line 9, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+p {
+  font-size: 14.5px;
+}
+
+/* line 13, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.p-10 {
+  padding: 10px;
+}
+
+/* line 17, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.p-20 {
+  padding: 20px;
+}
+
+/* line 21, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.btn-tutor {
+  background-color: #3347b3;
+  color: white;
+}
+
+/* line 26, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.register-login-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* line 31, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.btn-center {
+  display: -webkit-box !important;
+  display: flex !important;
+  margin: 0 auto;
+}
+
+/* line 36, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.wrap-center {
+  margin: 20px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+}
+
+/* line 42, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.form-center {
+  margin: 20px auto;
+  padding: 10px;
+  width: 50%;
+}
+
+/* line 48, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+textarea {
+  height: 215px;
+}
+
+/* line 52, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.date-select {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* line 57, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 61, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/app.scss */
+.profile-body {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+/* line 6, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages.scss */
+#recommend_signed_in {
+  padding: 30px;
+}
+
+/* line 11, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages.scss */
+.recommend_body,
+.all_tutors_body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+}
+
+/* line 18, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages.scss */
+.card {
+  max-width: 200px;
+  background-color: white;
+  padding: 0 15px 20px;
+  box-shadow: 4px 1px 7px rgba(199, 199, 199, 0.3);
+}
+
+/* line 25, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages.scss */
+.recommend_card_img,
+.all_tutors_card_img {
+  padding: 10px 0;
+}
+/* line 28, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages.scss */
+.recommend_card_img img,
+.all_tutors_card_img img {
+  width: auto;
+  height: 100px;
+  display: -webkit-box;
+  display: flex;
+  margin: 20px auto;
+  border-radius: 100px;
+}
+
+/* line 37, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages.scss */
+.all_tutors_header {
+  padding: 30px;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/dashboard.scss */
+.message-sticker {
+  font-size: .3em;
+  background-color: #fc0583;
+  color: white;
+  border-radius: 100%;
+  /* width: 2em; */
+  /* max-height: 20px; */
+  padding: 5px 10px;
+}
+
+/* line 11, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/dashboard.scss */
+.dashboard-header {
+  padding: 30px;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/home.scss */
+.hero {
+  background-color: white;
+}
+
+/* line 5, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/home.scss */
+.hero-inner {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-align: center;
+          align-items: center;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* line 13, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/home.scss */
+.img-responsive {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/register.scss */
+.register-header,
+.login-header {
+  padding: 30px 0;
+}
+
+/* line 6, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/pages/register.scss */
+.register-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/partials/navigation.scss */
+.site-header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  background-color: #3347b3;
+  box-shadow: 1px 1px 17px 0px rgba(0, 0, 0, 0.13);
+  padding: 10px;
+  color: white;
+}
+
+/* line 10, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/partials/navigation.scss */
+.navigation-menu {
+  display: -webkit-box;
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+/* line 16, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/partials/navigation.scss */
+.menu-list {
+  padding: 0 10px;
+}
+/* line 1, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 16, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 25, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 29, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 39, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding: 0 5px 7px;
+}
+
+/* line 44, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 49, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 53, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 59, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 66, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 76, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 82, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/* line 5, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/students.scss */
+.student-profile-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* line 10, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/students.scss */
+.select-group {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+}
+/* line 5, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/tutors.scss */
+.work-experience,
+.education {
+  margin: 30px 0;
+}
+
+/* line 10, C:/wamp64/www/rails/bookatutor/app/assets/stylesheets/tutors.scss */
+.work-experience-field,
+.education-field {
+  margin: 50px 0;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
