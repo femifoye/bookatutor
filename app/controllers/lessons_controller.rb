@@ -29,7 +29,17 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.json
   def create
-    @lesson = @booking.build_lesson(lesson_params)
+    params_lessons = {
+      "start" => Time.now,
+      "end" => nil,
+      "members" => {
+        "student" => current_user,
+        "tutor" => User.find(@booking["user_booked"].to_i)
+      },
+      "booking_id" => params[:booking_id].to_i
+    }
+    debugger
+    @lesson = @booking.build_lesson(params_lessons)
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to user_booking_lessons_url, notice: 'lesson was successfully created.' }

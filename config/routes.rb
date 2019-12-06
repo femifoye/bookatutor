@@ -47,7 +47,8 @@ Rails.application.routes.draw do
     resources :bookings do
       resources :lessons
 
-      post 'lessons/:id/end', to: 'lessons#endlesson', :as => :lesson_end
+      post'lessons/', to: 'lessons#create', :as => :lesson_create
+      post 'lessons/:id/end', to: 'lessons#endlesson', :as => :lesson_end     
       get 'lessons/:id/details', to: 'lessons#details', :as => :lesson_detail
     end
 

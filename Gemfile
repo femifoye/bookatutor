@@ -69,6 +69,8 @@ gem 'rack-attack'
 
 gem 'brakeman'
 
+gem 'isBooked', '~> 0.0.2'
+
 gem 'rails-observers'
 
 gem 'yaml_db'

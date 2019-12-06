@@ -2,13 +2,15 @@
 <h1 class="p-20 text-center">Your Bookings</h1>
 
 
-<% if @bookings == nil %>
- <h2>You have not created a Booking</h2>
- <p><%= link_to "Create New Booking", new_user_booking_path(@user) %></p>
-
+<% if @bookings.length == 0 %>
+  <div class="booking-notice text-center">
+    <h2>You have not created a Booking</h2>
+    <p><%= link_to "Book A Tutor", all_tutors_path   %></p>
+  </div>
 <% else %>
 
 <section class="container p-20 user-bookings text-center">
+<%= @bookings.length %>
   <% @bookings.each do |booking| %>
     <div class="user-booking-grid p-20">
       <div class="user-booking-field">
@@ -32,8 +34,5 @@
 
 </section>
 
-
-
-<%= link_to 'New Booking', new_user_booking_path(@user) %>
 
 <% end %>
