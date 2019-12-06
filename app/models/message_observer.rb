@@ -1,5 +1,6 @@
 require 'BAT_Notifications'
-
+#observer to notify user_messaged when a there is a new message
+#"record" is the message object being saved
 class MessageObserver < ActiveRecord::Observer
     def after_save(record)
         sender = User.find(record.user_id)
