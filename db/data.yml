@@ -22,20 +22,73 @@ bookings:
   - created_at
   - updated_at
   - user_booked
+  - hours_booked
   records: 
-  - - 2
-    - '2019-11-01 13:15:00'
-    - Aberdeen
-    - 4
-    - '2019-11-01 13:17:38.970979'
-    - '2019-11-01 13:17:38.970979'
-    - 
-  - - 3
-    - '2019-11-01 13:17:00'
-    - Dublin
-    - 4
-    - '2019-11-01 13:18:01.562999'
-    - '2019-11-01 14:09:56.662565'
+  - - 53
+    - '2019-12-10 10:00:00'
+    - |
+      ---
+      longitude: "-6.24315339120024"
+      latitude: '53.3487386'
+    - 22
+    - '2019-12-06 13:33:25.813908'
+    - '2019-12-06 13:33:25.813908'
+    - 21
+    - 3
+  - - 54
+    - '2019-12-08 10:00:00'
+    - |
+      ---
+      longitude: "-6.1858583"
+      latitude: '53.4017512'
+    - 22
+    - '2019-12-06 14:45:36.271357'
+    - '2019-12-06 14:45:36.271357'
+    - 21
+    - 2
+  - - 55
+    - '2019-12-10 14:30:00'
+    - |
+      ---
+      longitude: "-6.1858583"
+      latitude: '53.4017512'
+    - 22
+    - '2019-12-06 18:56:57.811402'
+    - '2019-12-06 18:56:57.811402'
+    - 21
+    - 2
+  - - 56
+    - '2019-12-10 14:30:00'
+    - |
+      ---
+      longitude: "-6.1858583"
+      latitude: '53.4017512'
+    - 22
+    - '2019-12-06 18:58:43.613820'
+    - '2019-12-06 18:58:43.613820'
+    - 21
+    - 2
+  - - 57
+    - '2019-12-06 14:30:00'
+    - |
+      ---
+      longitude: "-6.1858583"
+      latitude: '53.4017512'
+    - 22
+    - '2019-12-06 19:07:51.223225'
+    - '2019-12-06 19:07:51.223225'
+    - 21
+    - 2
+  - - 58
+    - '2019-12-07 21:00:00'
+    - |
+      ---
+      longitude: "-6.1858583"
+      latitude: '53.4017512'
+    - 22
+    - '2019-12-06 21:10:14.065368'
+    - '2019-12-06 21:10:14.065368'
+    - 21
     - 3
 
 ---
@@ -49,13 +102,36 @@ lessons:
   - created_at
   - updated_at
   records: 
-  - - 1
-    - '2019-11-01 14:21:00'
-    - '2019-11-01 14:50:26.026124'
-    - "2,\r\n1"
-    - 3
-    - '2019-11-01 14:21:35.241169'
-    - '2019-11-01 14:50:26.029129'
+  - - 13
+    - '2019-12-06 14:16:58.371873'
+    - '2019-12-06 14:28:48.882518'
+    - '{"student"=>#<User id: 22, email: "house16studio@gmail.com", firstname: "Femi",
+      lastname: "Foye", role: "Student", gender: "Male", has_profile: true, location:
+      nil>, "tutor"=>#<User id: 21, email: "femi.abdul67@gmail.com", firstname: "Femi",
+      lastname: "Abdul", role: "Tutor", gender: "Male", has_profile: true, location:
+      nil>}'
+    - 53
+    - '2019-12-06 14:17:06.470672'
+    - '2019-12-06 14:28:48.885521'
+
+---
+reviews:
+  columns:
+  - id
+  - reviewee
+  - review_content
+  - review_stars
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 33
+    - '21'
+    - I had a great time with this tutor
+    - 4
+    - 22
+    - '2019-12-06 14:29:14.083057'
+    - '2019-12-06 14:29:14.083057'
 
 ---
 students:
@@ -182,6 +258,20 @@ students:
     - 20
     - '2019-11-12 20:40:09.833623'
     - '2019-11-12 20:40:09.986725'
+  - - 34
+    - Post Graduate
+    - Looking for someone to tutor me in Computing
+    - |
+      ---
+      - subject: Cloud Computing
+        competency: '2'
+      - subject: Computer Science
+        competency: '3'
+      - subject: Computer Programming
+        competency: '1'
+    - 22
+    - '2019-12-01 15:45:53.679377'
+    - '2019-12-02 09:07:11.528533'
 
 ---
 subjects:
@@ -334,6 +424,7 @@ tutors:
   - user_id
   - created_at
   - updated_at
+  - dates_booked
   records: 
   - - 65
     - A dedicated and professional tutor
@@ -359,7 +450,11 @@ tutors:
       - Computer Programming
     - 5
     - '2019-11-12 13:21:43.226833'
-    - '2019-11-12 13:21:43.503871'
+    - '2019-11-25 14:15:32.546187'
+    - |
+      ---
+      - date: !ruby/object:DateTime 2019-11-29 14:00:00.000000000 Z
+        booked_by: 9
   - - 66
     - A marketing genius
     - With over 10 years in Marketing, i come with a mountain of knowledge and i am
@@ -386,6 +481,7 @@ tutors:
     - 2
     - '2019-11-12 14:36:06.969796'
     - '2019-11-12 14:36:07.496383'
+    - 
   - - 67
     - A resourceful Entepreneur
     - As a successful entrepreneur who has succeded in starting and running multiple
@@ -412,6 +508,7 @@ tutors:
     - 11
     - '2019-11-12 14:55:06.641203'
     - '2019-11-12 14:55:07.313081'
+    - 
   - - 68
     - Experienced English and Literature instructor
     - Teaching is my passion and i am looking to help new students get ahead in their
@@ -437,7 +534,21 @@ tutors:
       - Digital Media
     - 13
     - '2019-11-12 15:21:10.376899'
-    - '2019-11-12 15:21:10.968374'
+    - '2019-12-01 15:37:44.358707'
+    - |
+      ---
+      - date: !ruby/object:DateTime 2019-12-01 14:58:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 14:58:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 14:58:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 14:58:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 15:34:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 15:34:00.000000000 Z
+        booked_by: 9
   - - 69
     - 'Marketing 101: Don''t trust what the profile says'
     - 'Business professional with over 15 years in direct to consumer marketing. I
@@ -465,6 +576,7 @@ tutors:
     - 15
     - '2019-11-12 20:21:33.356014'
     - '2019-11-12 20:21:33.867602'
+    - 
   - - 70
     - A versatile Information Technology professional
     - IT professional with wide knowledge in all areas technology. I can tutor you
@@ -491,7 +603,17 @@ tutors:
       - Cloud Computing
     - 17
     - '2019-11-12 20:28:47.976719'
-    - '2019-11-12 20:28:48.423700'
+    - '2019-12-01 14:52:55.045263'
+    - |
+      ---
+      - date: !ruby/object:DateTime 2019-12-10 13:00:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 14:28:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 14:28:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 14:28:00.000000000 Z
+        booked_by: 9
   - - 71
     - A Music Instructor
     - Let me help you get to the next level in your Music. Book me for a session and
@@ -518,6 +640,88 @@ tutors:
     - 19
     - '2019-11-12 20:38:26.406058'
     - '2019-11-12 20:38:26.931537'
+    - 
+  - - 72
+    - I speak fluent Math
+    - I am a maths instructor looking to tutor a few students.
+    - 4
+    - Slow
+    - |
+      ---
+      - company: Unilever
+        location: Frankfurt, Germany
+        title: Systems Analyst
+        from: 2014-11-24
+        to: 2015-11-24
+    - |
+      ---
+      - school: MIT
+        degree: PhD Mathematics and Applied Science
+        graduated: 2016-09-24
+    - |
+      ---
+      - Mathematics
+      - Civil Engineering
+      - Physics
+    - 21
+    - '2019-11-24 18:33:33.045670'
+    - '2019-12-06 21:10:22.910417'
+    - |
+      ---
+      - date: !ruby/object:DateTime 2019-12-10 02:30:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-11-27 10:51:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 15:39:00.000000000 Z
+        booked_by: 9
+      - date: !ruby/object:DateTime 2019-12-01 15:47:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-10 18:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-01 18:42:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-01 18:54:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-01 19:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-01 19:04:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-01 19:43:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-01 19:48:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-13 16:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-15 00:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-15 00:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-18 00:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-22 00:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-04 19:15:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-04 19:15:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-04 19:44:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-04 19:44:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-19 20:15:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-10 10:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-08 10:00:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-10 14:30:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-10 14:30:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-06 14:30:00.000000000 Z
+        booked_by: 22
+      - date: !ruby/object:DateTime 2019-12-07 21:00:00.000000000 Z
+        booked_by: 22
 
 ---
 users:
@@ -762,4 +966,52 @@ users:
     - Student
     - Male
     - true
+    - 
+  - - 21
+    - femi.abdul67@gmail.com
+    - "$2a$11$g5kNC7Z52M9iALyKZsetoO0mnVsrK4XYyKxHqte9KUnWen497.FGy"
+    - 
+    - 
+    - 
+    - Femi
+    - Abdul
+    - Tutor
+    - Male
+    - true
+    - 
+  - - 22
+    - house16studio@gmail.com
+    - "$2a$11$CQNDabU3whI9DfRhbbSsS.5gAkA/4AMHP1bq1frCBNAU0pWp9ywHm"
+    - 
+    - 
+    - 
+    - Femi
+    - Foye
+    - Student
+    - Male
+    - true
+    - 
+  - - 23
+    - bodethomas@gmail.com
+    - "$2a$11$inbyjhO/O.eu7gB/5A52PuOt.GDq17ZdjPtTa5x5A3PN0A5uavd6C"
+    - 
+    - 
+    - 
+    - Bode
+    - Thomas
+    - Student
+    - Male
+    - false
+    - 
+  - - 24
+    - briandavids@gmail.com
+    - "$2a$11$yncOtfWH5.UN8Y3SUdWEnOn2UYRzfbCyVmR2HFGP4J.Wztna7MtVG"
+    - 
+    - 
+    - 
+    - Brian
+    - Davids
+    - Tutor
+    - Male
+    - false
     - 
