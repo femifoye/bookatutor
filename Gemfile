@@ -71,5 +71,5 @@ gem 'brakeman'
 
 gem 'yaml_db'
 
-gem 'arachni', '~> 1.5', '>= 1.5.1'
+#gem 'arachni', '~> 1.5', '>= 1.5.1'
 
