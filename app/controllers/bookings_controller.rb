@@ -1,5 +1,7 @@
 require 'geocoder'
 require 'certified'
+require 'isBooked'
+require 'bat_notifications'
 
 
 Geocoder.configure(  
@@ -138,7 +140,7 @@ class BookingsController < ApplicationController
   end
 
   def init_isbooked
-    @isBooked = IsBooked.new(current_user, @user_booked.tutor, @booking)
+    @isBooked = ::IsBooked.new(current_user, @user_booked.tutor, @booking)
   end
   
   private

@@ -1,4 +1,4 @@
-
+require 'bat_notifications'
 #observer to notify user and user_reviewed when a review is created
 #"record" is the booking object being saved
 class ReviewObserver < ActiveRecord::Observer

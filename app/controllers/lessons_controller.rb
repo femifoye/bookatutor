@@ -38,7 +38,6 @@ class LessonsController < ApplicationController
       },
       "booking_id" => params[:booking_id].to_i
     }
-    debugger
     @lesson = @booking.build_lesson(params_lessons)
     respond_to do |format|
       if @lesson.save

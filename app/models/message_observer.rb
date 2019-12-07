@@ -1,4 +1,4 @@
-
+require 'bat_notifications'
 #observer to notify user_messaged when a there is a new message
 #"record" is the message object being saved
 class MessageObserver < ActiveRecord::Observer

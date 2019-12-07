@@ -1,4 +1,4 @@
-
+require 'bat_notifications'
 class MessagesController < ApplicationController
   #before_action :set_message, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :show, :new, :edit, :create, :update, :destroy]

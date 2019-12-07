@@ -2,6 +2,7 @@
 require 'geocoder'
 require 'certified'
 require 'time'
+require 'bat_notifications'
 #observer to notify user and user_booked when a booking is created
 #"record" is the booking object being saved
 class BookingObserver < ActiveRecord::Observer
