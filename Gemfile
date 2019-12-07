@@ -55,10 +55,26 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'Matcher', '~> 1.0.0'
 
+<<<<<<< HEAD
 #gem 'BAT_Notifications', '~> 0.0.2'
+=======
+gem 'BAT_Notifications', '~> 0.0.4'
+>>>>>>> 0ee678933033f09bff704fe2d9fd1cd49790d79a
 
 gem 'pony', '~> 1.13', '>= 1.13.1'
 
+gem 'geocoder'
+
+gem 'certified'
+
 gem 'async'
+
+gem 'rack-attack'
+
+gem 'brakeman'
+
+gem 'isBooked', '~> 0.0.2'
+
+gem 'rails-observers'
 
 gem 'yaml_db'

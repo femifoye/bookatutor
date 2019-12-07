@@ -17,7 +17,6 @@
       <tr>
       <% @messages.each do |message| %>
         <td><%= message.message_to %></td>
-        <td><%= message.message_from %></td>
         <td><%= message.status %></td>
         <td><%= message.user.id %></td>
         <td><%= link_to 'Show', user_message_path(@user, message) %></td>

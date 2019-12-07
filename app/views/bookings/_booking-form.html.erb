@@ -15,7 +15,18 @@
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location, id: :booking_location %>
+        <div class="booking-location-group">
+          <%= form.label "Street Address" %>
+          <%= form.text_field( "booking_location[][street_address]", :class => "form-control") %>
+        </div>
+        <div class="booking-location-group">
+            <%= form.label "City" %>
+            <%= form.text_field( "booking_location[][city]", :class => 'form-control') %>
+        </div>
+        <div class="booking-location-group">
+            <%= form.label "Postal Code" %>
+            <%= form.text_field( "booking_location[][postal_code]", :class => 'form-control') %>
+        </div>
   </div>
 
   <div class="actions">

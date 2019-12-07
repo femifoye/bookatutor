@@ -1,35 +1,33 @@
+<section id="lesson-details" class="container text-center">
+  <h1>Lesson Details</h1>
 
-<h1>lessons</h1>
+  <% if @lesson == nil %>
+    <h2> This booking hasn't created a lesson </h2>
 
-<% if @lesson == nil %>
-  <h2> This booking hasn't created a lesson </h2>
+  <% else %>
 
-<% else %>
+  <div class="lesson-details-fields">
+    <div class="lesson-detail">
+      <h3>Start: </h3>
+      <p><%= Time.at(@lesson.start).httpdate %></p>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start</th>
-      <th>End</th>
-      <th>Members</th>
-      <th>References</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% if @lesson.end != nil %>
+      <div class="lesson-detail">
+        <h3>End: </h3>
+        <p><%= @lesson.start %></p>
+      </div>
+    <% end %>
 
-  <tbody>
-      <tr>
-        <td><%= @lesson.start %></td>
-        <td><%= @lesson.end %></td>
-        <td><%= @lesson.members %></td>
-        <td><%= @lesson.booking_id %></td>
-        <td><%= link_to 'End lesson', user_booking_lesson_end_path(@user, @booking, @lesson), method: :post, data: { confirm: 'Are you sure you want to end this lesson?' } %></td>
-        <td><%= link_to 'Cancel lesson', user_booking_lesson_path(@user, @booking, @lesson), method: :delete, data: { confirm: 'Are you sure you want to delete this lesson?' } %></td>
-      </tr>
-  </tbody>
-</table>
-
-<br>
+    <div class="lesson-detail">
+      <%= link_to 'End lesson', user_booking_lesson_end_path(@user, @booking, @lesson), method: :post, data: { confirm: 'Are you sure you want to end this lesson?' } %> |
+      <%= link_to 'Cancel lesson', user_booking_lesson_path(@user, @booking, @lesson), method: :delete, data: { confirm: 'Are you sure you want to delete this lesson?' } %>
+    </div>
 
 
-<% end %>
+  </div>
+
+
+  <% end %>
+
+</section>

@@ -1,24 +1,22 @@
 
-<p>
-  <strong>Date:</strong>
-  <%= @booking.date %>
-</p>
+<section id="booking-details" class="text-center">
 
-<p>
-  <strong>Location:</strong>
-  <%= @booking.location %>
-</p>
+  <div class="booking-details-header">
+    <h3>Booking Details</h3>
+  </div>
+  <p>
+    <strong>Date:</strong>
+    <%= Time.at(@booking.date).httpdate %>
+  </p>
 
-<p>
-  <strong>User Booked:</strong>
-  <%= @booking.user_booked %>
-</p>
+  <p>
+    <strong>User Booked:</strong>
+    <%= @users.select{|u| @booking.user_booked == u.id}[0].firstname %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @booking.user %>
-</p>
 
-<%= link_to 'Edit', edit_user_booking_path(@user, @booking) %> |
-<%= link_to 'Create Lesson', new_user_booking_lesson_path(@user, @booking) %> |
-<%= link_to 'Back', user_bookings_path(@user) %>
+  <%= link_to 'Edit', edit_user_booking_path(@user, @booking) %> |
+  <%= link_to 'Create Lesson', user_booking_lesson_create_path(@user, @booking, @lesson), method: :post %> |
+  <%= link_to 'Back', user_bookings_path(@user) %>
+
+</section>

@@ -1,9 +1,11 @@
 
 
-<h1>Reviews</h1>
+<h1 class="text-center">Reviews</h1>
 
-<% if(@reviews == nil) %>
-  <h2>No Reviews to display</h2>
+<% if(@reviews.length == 0) %>
+  <div class="review-notice text-center">
+    <h2>No Reviews to display</h2>
+  </div>
 <% else %>
 
 <table>
@@ -33,5 +35,3 @@
 </table>
 <% end %>
 <br>
-
-<%= link_to 'New Review', new_user_review_path(@user, @review) %>
