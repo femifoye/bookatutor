@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '~> 2.4.9'
+# ruby '~> 2.4.9'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -62,11 +62,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'Matcher', '~> 1.0.0'
 
-<<<<<<< HEAD
-#gem 'BAT_Notifications', '~> 0.0.2'
-=======
 gem 'BAT_Notifications', '~> 0.0.4'
->>>>>>> 0ee678933033f09bff704fe2d9fd1cd49790d79a
+
 
 gem 'pony', '~> 1.13', '>= 1.13.1'
 
