@@ -1,5 +1,3 @@
-require 'BAT_Notifications'
-
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_user

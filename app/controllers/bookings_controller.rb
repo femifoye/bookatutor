@@ -1,5 +1,3 @@
-require 'BAT_Notifications'
-require 'isBooked'
 require 'geocoder'
 require 'certified'
 

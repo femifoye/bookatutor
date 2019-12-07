@@ -1,4 +1,4 @@
-require 'BAT_Notifications'
+
 require 'geocoder'
 require 'certified'
 require 'time'
