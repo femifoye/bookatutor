@@ -3,4 +3,6 @@ class Booking < ApplicationRecord
   has_one :lesson
 
   serialize :location
+
+  validates :date, :location, :hours_booked, presence: true
 end
