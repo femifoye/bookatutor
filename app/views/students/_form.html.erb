@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :education_level %>
-    <%= form.text_field :education_level, id: :student_education_level, :class => 'form-control' %>
+    <%= form.select( :education_level, ["High School", "University/College", "Post-Graduate"].map{|c| c },  :class => "form-control")%>
   </div>
 
   <div class="field">
@@ -25,7 +25,7 @@
     <%= form.label :subjects_of_interest %>
     <p>Tell us how competent you are in the subjects you pick. 3 for "Most competent"
     and 1 for "Least competent". This will help us recommend the perfect tutors for you.</p>
-
+    <%= @education_array %>
     <% (1..3).to_a.each do  %>
       <div class="select-group">
         <div class="subject-group">

@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :teaching_style %>
-    <%= form.text_field :teaching_style, id: :tutor_teaching_style, :class => 'form-control' %>
+    <%= form.select( :teaching_style, ["Fast", "Average", "Slow"].map{|c| c },  :class => "form-control")%>
   </div>
 
   <div class="work-experience">
