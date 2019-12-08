@@ -4,8 +4,10 @@
     <p>please review your instructor</p>
 
     <h3>Review goes here</h3>
-
-    <%= form_for :review, :html => {:id => "review_form"} do |form| %>
+    <div id="review-notice" class="hide">
+        <h4>There is an error in your form. Please check your entries</h4>
+    </div>
+    <%= form_for :reviews, :html => {:id => "review_form"} do |form| %>
 
     <div class="field">
         <%= form.label :stars %>
@@ -20,7 +22,7 @@
     </div>
 
     <div class="actions">
-        <%= form.submit "Review Tutor" %>
+        <%= form.button "Review Tutor" %>
     </div>
     <% end %>
 

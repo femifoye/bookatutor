@@ -4,5 +4,9 @@ class Booking < ApplicationRecord
 
   serialize :location
 
-  validates :date, :location, :hours_booked, presence: true
+  validates :date, :hours_booked, presence: true
+  validates :location, length:{
+    in: 0..255,
+    allow_blank: false
+  }
 end

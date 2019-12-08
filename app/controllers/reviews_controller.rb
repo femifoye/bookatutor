@@ -30,13 +30,14 @@ class ReviewsController < ApplicationController
   def create
     #get parameters from the reviews form sent with ajax
     
-    respond_to do |format|
+    
       if @review = @user.reviews.create(review_params)
-        format.html { redirect_to user_review_path(@user, @review), notice: "Review was successfully created"}
+        respond_to do |format|
+          format.html { redirect_to user_review_path(@user, @review), notice: "Review was successfully created"}
+        end
       else
         render :action => 'new'
       end
-    end
 
     
   end

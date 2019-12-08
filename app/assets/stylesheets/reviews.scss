@@ -1,3 +1,15 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#review-notice{
+    width: fit-content;
+    background-color: pink;
+    padding: 10px;
+    color: black;
+    margin: 10px 0;
+}
+
+#review-notice h4{
+    font-size: .8em;
+}

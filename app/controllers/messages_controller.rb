@@ -2,6 +2,7 @@ require 'bat_notifications'
 class MessagesController < ApplicationController
   #before_action :set_message, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_message_to, only: [:new, :create]
 
   # GET /messages
   # GET /messages.json
@@ -18,7 +19,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = @user.messages.build
-    @message_to = User.find(params[:user_id])
+    
   end
 
   # GET /messages/1/edit
@@ -30,12 +31,13 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = @user.messages.build(message_params)
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to user_dashboard_url(@user), notice: 'Your message has been sent.' }
-      else
-        render :action => 'new'
+    if @message.save
+      respond_to do |f|
+        f.html { redirect_to user_dashboard_url(@user), notice: 'Your message has been sent.' }
       end
+    else
+      flash[:notice] = "There was a problem saving your form. Please check you entries"
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -65,6 +67,10 @@ class MessagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.find(params[:id])
+    end
+
+    def set_message_to
+      @message_to = User.find(params[:user_id])
     end
 
     def set_user

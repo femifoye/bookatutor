@@ -2,6 +2,7 @@ require 'geocoder'
 require 'certified'
 require 'isBooked'
 require 'bat_notifications'
+require 'time'
 
 
 Geocoder.configure(  
@@ -72,8 +73,10 @@ class BookingsController < ApplicationController
     #extract long and lat values from address using Geocoder gem
     full_address = street_address+", "+city
     location = Geocoder.search(full_address)
-    latitude = location[0].data["lat"]
-    longitude = location[0].data["lon"]
+    if location.length != 0
+      latitude = location[0].data["lat"]
+      longitude = location[0].data["lon"]
+    end
     #get hours booked
     hours_booked = params[:booking]["hours_booked"]
     #set userID of user who initiated booking
@@ -82,17 +85,18 @@ class BookingsController < ApplicationController
     user_booked_id = @user_booked.id
     #save all database parameters in a hash
     params_booking = {
-      "date" => date,
-      "location" => {"longitude" => longitude, "latitude" => latitude},
+      "date" => date.to_s,
+      "location" => location.length != 0? {"longitude" => longitude, "latitude" => latitude} : "",
       "hours_booked" => hours_booked,
       "user_booked" => user_booked_id
     }
     #save data to database
+    debugger
     @booking = @user.bookings.build(params_booking)
     self.init_isbooked
     check_booked = @isBooked.checkIfBooked
     if check_booked == false
-      respond_to do |format|
+      
         if @booking = @user.bookings.create(params_booking)
           #get the Tutor profile of the tutor booked
           tutor_booked = Tutor.where(user_id: [user_booked_id])
@@ -105,12 +109,14 @@ class BookingsController < ApplicationController
           #add new data to database and update
           tutor_booked[0].dates_booked.push(dates_booked_info)
           tutor_booked[0].save
-        
-          format.html { redirect_to user_booking_url(@user, @booking), notice: 'Your Booking was successful' }
+          respond_to do |format|
+            format.html { redirect_to user_booking_url(@user, @booking), notice: 'Your Booking was successful' }
+          end
         else
-          render :action => 'new'
+          flash[:notice] = "There was a problem saving your form. Please check you entries"
+          redirect_back(fallback_location: root_path)
         end
-      end
+      
     else
       redirect_to user_profile_path(@user_booked), notice: 'This tutor is booked at this time, Please choose another time.'
     end  
@@ -140,7 +146,7 @@ class BookingsController < ApplicationController
   end
 
   def init_isbooked
-    @isBooked = ::IsBooked.new(current_user, @user_booked.tutor, @booking)
+    @isBooked = IsBooked.new(current_user, @user_booked.tutor, @booking)
   end
   
   private

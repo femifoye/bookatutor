@@ -8,45 +8,44 @@ class TutorsController < ApplicationController
     @work_experience_array = params[:tutor][:work_experience]
     @education_array = params[:tutor][:education]
     @subject_array = params[:tutor][:subjects]
-    if @tutor.save 
-      #save work_experience hash
-      #@tutorSaved = @tutor
-      @work_experience_array.each do |w|
-        @tutor.work_experience.push({
-          "company" => w[:company], 
-          "location" => w[:location],
-          "title" => w[:title],
-          "from" => Date.civil(w[:from]["(1i)"].to_i, w[:from]["(2i)"].to_i, w[:from]["(3i)"].to_i),
-          "to" => Date.civil(w[:to]["(1i)"].to_i, w[:to]["(2i)"].to_i, w[:to]["(3i)"].to_i)
-        })
-      end
-      if @tutor.save
-        @education_array.each do |e|
-          @tutor.education.push({
-            "school" => e[:school],
-            "degree" => e[:degree],
-            "graduated" => Date.civil(e[:graduated]["(1i)"].to_i, e[:graduated]["(2i)"].to_i, e[:graduated]["(3i)"].to_i)
-          })
-        end
-      end
-      if @tutor.save
-        @subject_array.each do |s|
-          @tutor.subjects.push(s[:subject])
-        end
-      end
-      if @tutor.save
-        @user.has_profile = true
-        respond_to do |f|
-          if @user.save
-            f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
-          else
-            puts "No such User"
-          end
+    #save work_experience hash
+    #@tutorSaved = @tutor
+    @work_experience_array.each do |w|
+      @tutor.work_experience.push({
+        "company" => w[:company], 
+        "location" => w[:location],
+        "title" => w[:title],
+        "from" => Date.civil(w[:from]["(1i)"].to_i, w[:from]["(2i)"].to_i, w[:from]["(3i)"].to_i),
+        "to" => Date.civil(w[:to]["(1i)"].to_i, w[:to]["(2i)"].to_i, w[:to]["(3i)"].to_i)
+      })
+    end
+    
+    @education_array.each do |e|
+      @tutor.education.push({
+        "school" => e[:school],
+        "degree" => e[:degree],
+        "graduated" => Date.civil(e[:graduated]["(1i)"].to_i, e[:graduated]["(2i)"].to_i, e[:graduated]["(3i)"].to_i)
+      })
+    end
+    
+    
+    @subject_array.each do |s|
+      @tutor.subjects.push(s[:subject])
+    end
+    
+    if @tutor.save
+      @user.has_profile = true
+      respond_to do |f|
+        if @user.save
+          f.html {redirect_to user_profile_url, notice: "You have sucessfully created a profile"}  
+        else
+          puts "No such User"
         end
       end
     else
-      render :action => 'profiles/new'
+      redirect_to user_profile_new_url, notice: "There was a problem saving your form. Please check your form entries"
     end
+    
   end
 
   # PATCH/PUT /tutors/1
