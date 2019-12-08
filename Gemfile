@@ -82,3 +82,6 @@ gem 'isBooked', '~> 0.0.3'
 gem 'rails-observers'
 
 gem 'yaml_db'
+
+gem 'sequel'
+
