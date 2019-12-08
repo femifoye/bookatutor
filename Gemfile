@@ -77,7 +77,7 @@ gem 'rack-attack'
 
 gem 'brakeman'
 
-gem 'isBooked', '~> 0.0.4'
+gem 'isBooked', '~> 0.0.5'
 
 gem 'rails-observers'
 
