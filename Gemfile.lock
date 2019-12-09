@@ -93,7 +93,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
-    isBooked (0.0.4)
+    isBooked (0.0.5)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     loofah (2.3.1)
@@ -231,7 +231,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.0)
   geocoder
-  isBooked (~> 0.0.4)
+  isBooked (~> 0.0.5)
   jbuilder (~> 2.5)
   pg
   pony (~> 1.13, >= 1.13.1)

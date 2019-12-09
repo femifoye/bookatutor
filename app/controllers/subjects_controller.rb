@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_admin
 
   # GET /subjects
   # GET /subjects.json
@@ -65,6 +66,15 @@ class SubjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_subject
       @subject = Subject.find(params[:id])
+    end
+
+      #ensure user is admin else redirect back
+    def ensure_admin
+      unless current_user && current_user.admin
+        flash[:notice] = "You are not authorized to perform this action"
+        redirect_back(fallback_location: root_path)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

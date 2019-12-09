@@ -14,6 +14,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_user
   before_action :set_user_booked
+  before_action :ensure_admin only: [:edit, :update]
+  
 
   # GET /bookings
   # GET /bookings.json
@@ -161,6 +163,14 @@ class BookingsController < ApplicationController
 
     def set_user_booked
       @user_booked = User.find(params[:user_id])
+    end
+
+    def ensure_admin
+      unless current_user && current_user.admin
+        flash[:notice] = "You are not authorized to perform this action"
+        redirect_back(fallback_location: root_path)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

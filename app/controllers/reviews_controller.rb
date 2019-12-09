@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_user
   before_action :set_user_reviewed, only: [:create]
+  before_action :ensure_admin, only: [:destroy, :edit, :update]
 
   # GET /reviews
   # GET /reviews.json
@@ -88,6 +89,15 @@ class ReviewsController < ApplicationController
 
     def set_user_reviewed
       @user_reviewed = User.find(params[:reviewee])
+    end
+
+    #ensure user is admin else redirect back
+    def ensure_admin
+      unless current_user && current_user.admin
+        flash[:notice] = "You are not authorized to perform this action"
+        redirect_back(fallback_location: root_path)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

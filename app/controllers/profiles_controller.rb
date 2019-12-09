@@ -8,8 +8,11 @@ class ProfilesController < ApplicationController
 
 
     def index
+        #get index based on user role
+        #@profile should receive value @user.student or @user.tutor depending on user role
         @profile = send @prop[:show]
         if @user != current_user
+            #@prop[:render] should return "students" or "tutors"
             render "#{@prop[:render]}/show"
         else
             render "#{@prop[:render]}/index"
@@ -72,7 +75,7 @@ class ProfilesController < ApplicationController
     def get_user_role
         @user.role
     end
-
+    #switch role based on user role
     def switch_role(student_action, tutor_action)
         case @prop[:role]
         when "student"

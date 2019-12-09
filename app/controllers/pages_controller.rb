@@ -2,6 +2,9 @@ require 'matcher'
 class PagesController < ApplicationController
   #before_action :authenticate_user!, only: [:home]
   before_action :set_user
+  
+
+  #this action returns the homepage
   def home
     @pageTitle = "Home"
     if (@user and @user.role == "Student")
@@ -18,7 +21,8 @@ class PagesController < ApplicationController
 
 
   end
-
+  
+  #this action returns the user dashboard
   def dashboard
     @user_messages = Message.where(message_to: current_user.id)
     @user_unread_message = @user_messages.select { |m| m.status == "unread"}

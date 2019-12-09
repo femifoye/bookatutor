@@ -3,6 +3,7 @@ class LessonsController < ApplicationController
   before_action :set_user
   before_action :set_booking
   before_action :set_lesson, only: [:show, :index, :edit, :update, :endlesson, :destroy, :details]
+  before_action :ensure_admin, only: [:edit, :update]
 
   # GET /lessons
   # GET /lessons.json
@@ -101,6 +102,14 @@ class LessonsController < ApplicationController
 
     def lesson_started
       @lesson.start != nil
+    end
+
+    def ensure_admin
+      unless current_user && current_user.admin
+        flash[:notice] = "You are not authorized to perform this action"
+        redirect_back(fallback_location: root_path)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

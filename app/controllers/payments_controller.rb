@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   #before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :ensure_admin, only: [:edit, :update, :destroy]
 
   # GET /payments
   # GET /payments.json
@@ -64,6 +65,15 @@ class PaymentsController < ApplicationController
     end
     def set_user
       @user = User.find(params[:user_id])
+    end
+
+    #ensure user is admin else redirect back
+    def ensure_admin
+      unless current_user && current_user.admin
+        flash[:notice] = "You are not authorized to perform this action"
+        redirect_back(fallback_location: root_path)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
