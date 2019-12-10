@@ -93,7 +93,6 @@ class BookingsController < ApplicationController
       "user_booked" => user_booked_id
     }
     #save data to database
-    debugger
     @booking = @user.bookings.build(params_booking)
     self.init_isbooked
     check_booked = @isBooked.checkIfBooked
